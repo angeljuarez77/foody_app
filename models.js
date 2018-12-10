@@ -10,27 +10,27 @@ const sequelize = new Sequelize({
 });
 
 const Recipe = sequelize.define('recipe', {
-  url : Sequelize.STRING,
-  title : Sequelize.STRING,
-  description : Sequelize.STRING,
-  category : Sequelize.STRING,
-  rating : Sequelize.INTEGER
+  url: Sequelize.STRING,
+  title: Sequelize.STRING,
+  description: Sequelize.STRING,
+  category: Sequelize.STRING,
+  rating: Sequelize.INTEGER,
 });
 
 const User = sequelize.define('user', {
-  name : Sequelize.STRING,
-  password : Sequelize.STRING,
-  fav_id : Sequelize.INTEGER
+  name: Sequelize.STRING,
+  password: Sequelize.STRING,
+  fav_id: Sequelize.INTEGER,
 });
 
 const Favorite = sequelize.define('favorite', {
-  recipe_id : Sequelize.INTEGER,
-  user_id : Sequelize.INTEGER
+  recipe_id: Sequelize.INTEGER,
+  user_id: Sequelize.INTEGER,
 });
 
 module.exports = {
   sequelize,
   Recipe,
   User,
-  Favorite
-}
+  Favorite,
+};
