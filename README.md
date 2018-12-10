@@ -22,7 +22,17 @@ As they scroll through the dashboard they will be able to click on the recipe an
 ## WANT TO CONTRIBUTE?!?!?!?!?!
 If you want to contribute to this project then you could clone this down into your machine and after that you will have to cd into the folder you created and run ```npm i```. This will install all the dependencies that is required to use this app. After this if you type ls into your current folder you will see a directory called "foody". You will also have to cd into this and run ```npm i```.
 
-![this is supposed to be the ERD](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg6.jpg)
 After that all you have to do is open this in your favorite text editor and start typing!!
+
+This is a combination of our schema and ERD for the database that we will use 
+![Food app schema and ERD](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg6.jpg)
+
+This is a rough concept of what will be the component hierarchy
+![React component hierarchy](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg5.jpg)
+
+These picture are our initial wireframe
+![Wireframe - opening page](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg2.jpg)
+![Wireframe - log in sign up page](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg3.jpg)
+![Wireframe - view when they are signed in](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg4.jpg)
 ## Acknowlegements 
 Leo, Missy, Jess, Angel
