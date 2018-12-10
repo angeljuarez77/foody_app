@@ -20,6 +20,8 @@ As they scroll through the dashboard they will be able to click on the recipe an
 + sequelize 
 
 ## WANT TO CONTRIBUTE?!?!?!?!?!
+If you want to contribute to this project then you could clone this down into your machine and after that you will have to cd into the folder you created and run ```npm i```. This will install all the dependencies that is required to use this app. After this if you type ls into your current folder you will see a directory called "foody". You will also have to cd into this and run ```npm i```.
 
+After that all you have to do is open this in your favorite text editor and start typing!!
 ## Acknowlegements 
 Leo, Missy, Jess, Angel
