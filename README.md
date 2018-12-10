@@ -34,5 +34,8 @@ These picture are our initial wireframe
 ![Wireframe - opening page](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg2.jpg)
 ![Wireframe - log in sign up page](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg3.jpg)
 ![Wireframe - view when they are signed in](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg4.jpg)
+
+These would be the endpoints for our API
+![Endpoints for our API](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg7.jpg)
 ## Acknowlegements 
 Leo, Missy, Jess, Angel
