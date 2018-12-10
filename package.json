@@ -14,11 +14,17 @@
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.41.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scratchDb": "node resetDb.js && node models.js",
-    "dev" : "nodemon server.js",
+    "dev": "nodemon server.js",
     "resetDb": "node resetDb.js",
     "seed": "node seed.js",
     "debug": "nodemon --inspect-brk server.js"
