@@ -12,4 +12,4 @@ async function resetDb() {
   }
 }
 
-resetDb();
+resetDb()
