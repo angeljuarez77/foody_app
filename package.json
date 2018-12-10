@@ -18,7 +18,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "scratchDb": "node resetDb.js && node models.js",
-    "dev" : "nodemon server.js"
+    "dev" : "nodemon server.js",
+    "populateDb": "node resetDb.js && node models.js && node seed.js" 
   },
   "repository": {
     "type": "git",
