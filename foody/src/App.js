@@ -3,11 +3,35 @@ import LoggedInView from './components/LoggedIn/LoggedInView.js';
 import Login from './components/LoggedOut/Login.js'
 import CreateAccount from './components/LoggedOut/CreateAccount.js'
 import Welcome from './components/Welcome.js'
+import AllRecipes from './components/LoggedIn/AllRecipes.js';
+
+
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      view: 'loggedin'
+      view: 'welcome',
+      recipes: [
+            {
+              id: 1,
+              url: 'youtube.com',
+              title: 'Youtube Homepage',
+              category: 'Vegetarian'
+            },
+            {
+              id: 2,
+              url: 'youtube.com/amazingvideo',
+              title: 'Amazing Video',
+              category: 'Vegan'
+            },
+            {
+              id: 3,
+              url: 'youtube.com/funnyanimal',
+              title: 'Funny Animal',
+              category: 'None'
+            }
+        ],
+      selected: 'Vegetarian'
     }
   }
 
@@ -30,7 +54,7 @@ getView(){
   render() {
     return (
       <div className="App">
-
+      <AllRecipes recipes={this.state.recipes} selected={this.state.selected} />
       {this.getView()}
 
       </div>
