@@ -23,7 +23,7 @@ async function createRecipe() {
         url: 'https://www.youtube.com/watch?v=jfUpWuuO9_g',
         title: 'Vegetable Rice Recipe',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        category: ['vegan, vegetarian'],
+        category: 'vegan',
         rating: 3
       },
       {
