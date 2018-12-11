@@ -20,17 +20,14 @@ const Recipe = sequelize.define('recipe', {
 const User = sequelize.define('user', {
   name: Sequelize.STRING,
   password: Sequelize.STRING,
-  fav_id: Sequelize.INTEGER,
 });
 
-const Favorite = sequelize.define('favorite', {
-  recipe_id: Sequelize.INTEGER,
-  user_id: Sequelize.INTEGER,
-});
+Recipe.belongsToMany(User, { through: 'favorites' });
+User.belongsToMany(Recipe, { through: 'favorites' });
+
 
 module.exports = {
   sequelize,
   Recipe,
   User,
-  Favorite,
 };
