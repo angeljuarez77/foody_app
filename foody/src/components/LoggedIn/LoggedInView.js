@@ -1,34 +1,9 @@
 import React, { Component } from 'react';
 import AllRecipes from './AllRecipes.js';
-import VeganRecipes from './VeganRecipes.js';
-import VegetarianRecipes from './VegetarianRecipes.js';
 
 
-class LoggedInView extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      filter: 'vegan'
-    }
-  }
+export default function LoggedInView() {
 
-  getView(){
-    const filter = this.state.filter;
-    switch (filter) {
-      case 'all':
-        return <AllRecipes />
-      case 'vegan':
-        return <VeganRecipes />
-      case 'vegetarian':
-        return <VegetarianRecipes />
-      default:
-        return <AllRecipes />
-    }
-  }
-
-
-
-  render(){
   return(
     <div>
       <h1> Logged In View </h1>
@@ -36,11 +11,9 @@ class LoggedInView extends Component {
       <button> Only Vegan </button>
       <button> Only Vegetarian </button>
 
-      {this.getView()}
+
+      <AllRecipes />
 
     </div>
-  )}
-}
-
-
-export default LoggedInView;
+  )
+};
