@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      view: 'welcome',
+      view: 'loggedin',
       recipes: [
             {
               id: 1,
@@ -28,11 +28,28 @@ class App extends Component {
               id: 3,
               url: 'youtube.com/funnyanimal',
               title: 'Funny Animal',
-              category: 'None'
+              category: ''
             }
         ],
-      selected: 'Vegetarian'
+      selected: 'Vegetarian',
+      filterResults: [],
+      favorites: [
+        {
+          id: 3,
+          url: 'youtube.com/funnyanimal',
+          title: 'Funny Animal',
+          category: ''
+        },
+        {
+          id: 2,
+          url: 'youtube.com/amazingvideo',
+          title: 'Amazing Video',
+          category: 'Vegan'
+        }
+      ]
     }
+
+    this.filterResult = this.filterResult.bind(this);
   }
 
 
@@ -45,16 +62,30 @@ getView(){
     case 'signup':
       return <CreateAccount />
     case 'loggedin':
-      return <LoggedInView />
+      return <LoggedInView filterResult={this.filterResult} recipes={this.state.recipes} selected={this.state.selected} favorites={this.state.favorites}/>
     default:
       return <Welcome />
   }
 }
 
+
+
+filterResult(arr){
+
+  const selectedRecipes = arr.filter(recipe => recipe.category === this.state.selected)
+  console.log(selectedRecipes);
+    this.setState({
+      filterResults:selectedRecipes
+    })
+  console.log(selectedRecipes);
+}
+
+
+
   render() {
+
     return (
       <div className="App">
-      <AllRecipes recipes={this.state.recipes} selected={this.state.selected} />
       {this.getView()}
 
       </div>
