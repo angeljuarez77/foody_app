@@ -33,35 +33,38 @@ recipeRouter.get('/:id', async (req, res) => {
 });
 
 recipeRouter.post('/', async (req, res) => {
-  try{
+  try {
     const newRecipe = await Recipe.create(req.body);
     res.json(newRecipe);
-  }catch(e){
-  console.error(e);
-  res.status(500).json({message:e.message})
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.error(e);
+    res.status(500).json({ message: e.message });
   }
-})
+});
 
 recipeRouter.delete('/:id', async (req, res) => {
-  try{
-    const deleteThis = await Recipe.destroy({where: {id: req.params.id}});
-    res.json(deleteThis)
-  }catch(e){
+  try {
+    const deleteThis = await Recipe.destroy({ where: { id: req.params.id } });
+    res.json(deleteThis);
+  } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e);
-    res.status(500).json({message:e.message});
+    res.status(500).json({ message: e.message });
   }
-})
+});
 
 
 recipeRouter.put('/:id', async (req, res) => {
-  try{
+  try {
     const info = req.body;
     const recipe = await Recipe.findByPk(req.params.id);
     recipe.update(info);
     res.json(recipe);
-  }catch(e) {
+  } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e);
-    res.status(500).json({message: e.message})
+    res.status(500).json({ message: e.message });
   }
 });
 
