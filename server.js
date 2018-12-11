@@ -19,6 +19,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json())
 app.use('/recipes', recipeRouter);
 app.use('/users', userRouter);
+// app.use('/users', favoriteRouter);
  // I think this will only give us a favorite from all the users,
 //not favorites from a particular user. is that what we want? to get all videos that had been favorites by users?
 
