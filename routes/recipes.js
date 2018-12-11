@@ -30,6 +30,39 @@ recipeRouter.get('/:id', async (req, res) => {
   }
 });
 
+recipeRouter.post('/', async (req, res) => {
+  try{
+    const newRecipe = await Recipe.create(req.body);
+    res.json(newRecipe);
+  }catch(e){
+  console.error(e);
+  res.status(500).json({message:e.message})
+  }
+})
+
+recipeRouter.delete('/:id', async (req, res) => {
+  try{
+    const deleteThis = await Recipe.destroy({where: {id: req.params.id}});
+    res.json(deleteThis)
+  }catch(e){
+    console.error(e);
+    res.status(500).json({message:e.message});
+  }
+})
+
+
+recipeRouter.put('/:id', async (req, res) => {
+  try{
+    const info = req.body;
+    const recipe = await Recipe.findByPk(req.params.id);
+    recipe.update(info);
+    res.json(recipe);
+  }catch(e) {
+    console.error(e);
+    res.status(500).json({message: e.message})
+  }
+});
+
 //
 // favoriteRouter.get('/:id', async (req, res) => {
 //   const favorite = await Favorite.findAll({where: {id:req.params.id}})
