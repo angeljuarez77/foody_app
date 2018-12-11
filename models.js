@@ -25,7 +25,6 @@ const User = sequelize.define('user', {
 Recipe.belongsToMany(User, { through: 'favorites' });
 User.belongsToMany(Recipe, { through: 'favorites' });
 
-
 module.exports = {
   sequelize,
   Recipe,
