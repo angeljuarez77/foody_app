@@ -1,9 +1,30 @@
 const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
+
+const PORT = process.env.PORT || 3001;
+
+
+const { User, Recipe } = require('./models');
+
+const {userRouter } = require('./routes/users');
+const {recipeRouter } = require('./routes/recipes');
+
 
 const app = express();
-const port = 3001;
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.use(cors());
+app.use(logger('dev'));
+app.use(bodyParser.json())
+app.use('/recipes', recipeRouter);
+app.use('/users', userRouter);
+ // I think this will only give us a favorite from all the users,
+//not favorites from a particular user. is that what we want? to get all videos that had been favorites by users?
 
-// eslint-disable-next-line no-console
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+//users/:id/fav
+
+
+app.listen(PORT, () => {
+  console.log(`up and running on PORT ${PORT}`);
+})
