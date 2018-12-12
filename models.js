@@ -23,8 +23,8 @@ const User = sequelize.define('user', {
   password: Sequelize.STRING,
 });
 
-User.beforeCreate((user, options) => {
-  const password_digest = bcrypt.hash(user.password, 10);
+User.beforeCreate( async (user, options) => {
+  const password_digest = await bcrypt.hash(user.password, 10);
   user.password = password_digest;
 });
 
