@@ -39,6 +39,7 @@ class App extends Component {
       view: 'loggedin'
     }
     this.renderFavorites = this.renderFavorites.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   async getRecipes() {
@@ -82,7 +83,8 @@ setView = (view) =>{
   this.setState({
     view:view
   })
-    this.handleSelect = this.handleSelect.bind(this);
+
+
 }
 
 

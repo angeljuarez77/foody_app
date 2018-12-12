@@ -9,34 +9,7 @@ async function createRecipe() {
       {
         url: 'https://www.youtube.com/watch?v=aafmrrx7Bh4',
         title: 'Traditional Shoyu Ramen',
-        description: "Shoyu Ramen
-                    Ingredients
-
-                    For the Broth (Makes 8 to 10 servings)
-                    6 lb pork neck bones
-                    2 oz ginger, sliced
-                    2 bulbs garlic, cut into halves
-                    1 large leek, cut into half and wash every layers really well then drain
-                    1 1/2 oz kombu, dried kelp
-                    1 1/2 Tbsp chicken stock powder
-                    24 cups cold water
-
-                    For the Chashu (Makes 8 to 10 servings)
-                    2 lb pork belly or pork butt
-
-                    For the Tare (Sauce) (Makes 8 to 10 servings)
-                    1 1/2 cup soy sauce
-                    3/4 cup sake
-                    3/4 cup mirin
-                    ginger, sliced
-                    1 clove garlic, crushed
-
-                    For the Ramen Bowl (Makes 1 serving with below ingredients)
-                    3 oz bean sprouts
-                    1 portion of fresh, frozen (5 oz each) or dried (3 oz each) ramen noodles
-                    2 green onions, chopped
-                    1 soft boiled egg, cut into half
-                    1 garlic cloves",
+        description: "Shoyu Ramen",
         category: '',
         rating: 4
       },
