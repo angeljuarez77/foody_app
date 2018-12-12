@@ -1,5 +1,6 @@
 import React from 'react';
 import Recipe from '../Recipe.js';
+import FilterButtons from './FilterButtons.js';
 
 
 export default function Favorites(props){
@@ -10,6 +11,7 @@ export default function Favorites(props){
 
   return(
     <div>
+        <FilterButtons handleSelect={props.handleSelect}/>
         {
           props.selected
           ?

@@ -11,7 +11,6 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      view: 'loggedin',
       recipes: [
             {
               id: 1,
@@ -32,8 +31,6 @@ class App extends Component {
               category: ''
             }
         ],
-      selected: '',
-      filterResults: [],
       favorites: [
         {
           id: 3,
@@ -48,14 +45,13 @@ class App extends Component {
           category: 'Vegan'
         }
       ],
-      favoritesView : true
+      favoritesView : true,
+      categories : ['Vegan', 'Vegetarian'],
+      selected: '',
+      filterResults: [],
+      view: 'loggedin'
     }
-}
-
-setView = (view) =>{
-  this.setState({
-    view:view
-  })
+    this.handleSelect = this.handleSelect.bind(this);
 }
 
 
@@ -63,21 +59,29 @@ getView(){
   const view = this.state.view;
   switch (view) {
     case 'login':
-      return <Login pageSwitch = {this.setView}/>
+      return <Login />
     case 'signup':
-      return <CreateAccount pageSwitch = {this.setView}/>
+      return <CreateAccount />
     case 'loggedin':
-      return <LoggedInView favoritesView={this.state.favoritesView} recipes={this.state.recipes} selected={this.state.selected} favorites={this.state.favorites}/>
+      return <LoggedInView handleSelect={this.handleSelect} favoritesView={this.state.favoritesView} recipes={this.state.recipes} selected={this.state.selected} favorites={this.state.favorites}/>
     default:
-      return <Welcome pageSwitch={this.setView}/>
+      return <Welcome />
   }
 }
-  
+
+
+handleSelect(filter){
+  this.setState({
+    selected: filter
+  });
+}
+
   render() {
 
     return (
       <div className="App">
       {this.getView()}
+
       </div>
     );
   }
