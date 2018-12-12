@@ -89,6 +89,10 @@ userRouter.post('/login', async (req, res) => {
   }
 });
 
+userRouter.get('/currentuser', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({ msg: 'logged in', user: req.user });
+});
+
 userRouter.delete('/:id', async (req, res) => {
   try {
     const deleteThis = await User.destroy({ where: { id: req.params.id } });
