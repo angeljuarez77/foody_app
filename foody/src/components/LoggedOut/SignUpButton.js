@@ -2,8 +2,8 @@ import React from 'react';
 
 
 
-export default function SignUpButton(){
+export default function SignUpButton(props){
   return(
-    <button> Sign Up </button>
+    <button onClick={ () => props.pageSwitch('signup')}>Sign Up</button>
   )
 }
