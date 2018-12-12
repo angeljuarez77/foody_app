@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      view: 'loggedin',
+      view: '',
       recipes: [
             {
               id: 1,
@@ -77,7 +77,7 @@ getView(){
 
     return (
       <div className="App">
-      {this.getView()}
+        {this.getView()}
       </div>
     );
   }
