@@ -10,53 +10,38 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      view: 'welcome',
-      recipes: [
-            {
-              id: 1,
-              url: 'youtube.com',
-              title: 'Youtube Homepage',
-              category: 'Vegetarian'
-            },
-            {
-              id: 2,
-              url: 'youtube.com/amazingvideo',
-              title: 'Amazing Video',
-              category: 'Vegan'
-            },
-            {
-              id: 3,
-              url: 'youtube.com/funnyanimal',
-              title: 'Funny Animal',
-              category: 'None'
-            }
-        ],
-      selected: 'Vegetarian'
+      user:[],
+      view:''
     }
   }
 
+setView = (view) =>{
+  this.setState({
+    view:view
+  })
+}
 
 
 getView(){
   const view = this.state.view;
   switch (view) {
     case 'login':
-      return <Login />
+      return <Login pageSwitch = {this.setView}/>
     case 'signup':
-      return <CreateAccount />
+      return <CreateAccount pageSwitch = {this.setView}/>
     case 'loggedin':
       return <LoggedInView />
     default:
-      return <Welcome />
+      return <Welcome pageSwitch={this.setView}/>
   }
 }
+
 
   render() {
     return (
       <div className="App">
       <AllRecipes recipes={this.state.recipes} selected={this.state.selected} />
       {this.getView()}
-
       </div>
     );
   }
