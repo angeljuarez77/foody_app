@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function FilterButtons(props){
+export default function FilterButtons(props) {
 
 return(
   <div>
