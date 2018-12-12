@@ -72,6 +72,7 @@ getView(){
               recipes={this.state.recipes}
               selected={this.state.selected}
               favorites={this.state.favorites}
+
               />
     default:
       return <Welcome />
@@ -84,17 +85,12 @@ handleSelect(filter){
   });
 }
 
-renderFavorites(){
+renderFavorites(nextView){
   this.setState({
-    favoritesView: true
+    favoritesView: nextView
   })
 }
 
-renderAllRecipes(){
-  this.setState({
-    favoritesView: false
-  })
-}
 
   render() {
 
