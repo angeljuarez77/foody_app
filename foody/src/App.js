@@ -6,6 +6,7 @@ import Welcome from './components/Welcome.js'
 import AllRecipes from './components/LoggedIn/AllRecipes.js';
 import Recipe from './components/Recipe.js';
 import axios from 'axios'
+import  './App.css'
 
 
 const BASE_URL = 'http://localhost:3001';
@@ -14,7 +15,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      view: 'loggedin',
+      view: 'signup',
       recipes: [],
       selected: '',
       filterResults: [],
@@ -39,44 +40,21 @@ class App extends Component {
       view: 'loggedin'
     }
     this.renderFavorites = this.renderFavorites.bind(this);
-
+}
 
   async getRecipes() {
-    const results = await axios.get(`${BASE_URL}/recipes`);
+    const results = await axios(`${BASE_URL}/recipes`);
     const recipes = results.data
     console.log(recipes);
     this.setState({
       recipes:recipes
     })
+    console.log(this.state.recipes[0].videoid)
   }
 
 async componentDidMount(){
   await this.getRecipes()
 }
-
-//
-// {
-//   id: 1,
-//   url: 'youtube.com',
-//   title: 'Youtube Homepage',
-//   category: 'Vegetarian'
-// },
-// {
-//   id: 2,
-//   url: 'youtube.com/food1',
-//   title: 'Food 1',
-//   category: 'Vegan'
-// },
-// {
-//   id: 3,
-//   url: 'youtube.com/food2',
-//   title: 'Food 2',
-//   category: ''
-// }
-
-
-
-
 
 setView = (view) =>{
   this.setState({
@@ -94,14 +72,13 @@ getView(){
     case 'signup':
       return <CreateAccount />
     case 'loggedin':
-      return <LoggedInView
+      return <LoggedInView className="recipeframe"
               handleSelect={this.handleSelect}
               renderFavorites={this.renderFavorites}
               favoritesView={this.state.favoritesView}
               recipes={this.state.recipes}
               selected={this.state.selected}
               favorites={this.state.favorites}
-
               />
     default:
       return <Welcome />

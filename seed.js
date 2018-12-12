@@ -1,6 +1,5 @@
 const { Recipe, User, Favorite } = require('./models');
 const { Op } = require('sequelize');
-const bcrypt = require('bcrypt-nodejs');
 
 async function createRecipe() {
   await Recipe.destroy({ where: {} });
@@ -8,6 +7,7 @@ async function createRecipe() {
     const recipe = await Recipe.bulkCreate([
       {
         url: 'https://www.youtube.com/watch?v=aafmrrx7Bh4',
+        videoid:'aafmrrx7Bh4',
         title: 'Traditional Shoyu Ramen',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: null,
@@ -15,6 +15,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=4zw4FJVcjhw',
+        videoid:'4zw4FJVcjhw',
         title: 'Breakfast Egg Bites',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: null,
@@ -22,6 +23,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=jfUpWuuO9_g',
+        videoid:'jfUpWuuO9_g',
         title: 'Vegetable Rice Recipe',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: 'vegan',
@@ -29,6 +31,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=r1ZLSbQ0r0I',
+        videoid:'r1ZLSbQ0r0I',
         title: 'French Toast',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: null,
@@ -43,22 +46,17 @@ async function createRecipe() {
 async function createUser() {
   await User.destroy({ where: {} });
   try {
-
-    // const firstUser = { name: 'Leonidas', password: bcrypt.hashSync('abcdefgangsta', 12) };
-    // const secondUser = { name: 'Chef Ramsey', password: bcrypt.hashSync('cookingislife', 12) };
-    // const thirdUser = { name: 'some guy', password: bcrypt.hashSync('imhungry', 12) };
-
-    await User.bulkCreate([
+    const user = await User.bulkCreate([
       {
         name: 'Leonidas',
         password: 'abcdefgangsta',
       },
       {
         name: 'Chef Ramsey',
-        password: 'cookingislife'
+        password: 'cookingislife',
       },
       {
-        name: 'some guy',
+        name: 'Some guy',
         password: 'imhungry',
       },
     ]);
@@ -79,7 +77,6 @@ async function addFavorite() {
     console.log(e);
   }
 }
-
 
 async function run() {
   try {
