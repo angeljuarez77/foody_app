@@ -117,17 +117,6 @@ userRouter.put('/:id', async (req, res) => {
   }
 });
 
-
-// userRouter.get('/:id', async (req, res) => {
-//   try{
-//     const thisUser = await useRouter.findByPk(req.params.id)
-//     res.json(thisUser)
-//   }catch(e){
-//     console.log(e);
-//     res.status(500).json({message: e.message})
-//   }
-// });
-
 module.exports = {
   userRouter,
 };
