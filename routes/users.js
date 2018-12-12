@@ -1,6 +1,6 @@
 const express = require('express');
-const { passport, sign } = require('../auth');
 const bcrypt = require('bcrypt');
+const { passport, sign } = require('../auth');
 const { User } = require('../models');
 const { Recipe } = require('../models');
 
