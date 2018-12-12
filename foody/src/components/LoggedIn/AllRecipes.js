@@ -8,7 +8,7 @@ export default function AllRecipes(props){
   return(
 
     <div>
-      <FilterButtons handleSelect={props.handleSelect}/>
+      <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites}/>
           {
             props.selected
             ?

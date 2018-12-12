@@ -51,6 +51,8 @@ class App extends Component {
       filterResults: [],
       view: 'loggedin'
     }
+    this.renderFavorites = this.renderFavorites.bind(this);
+
     this.handleSelect = this.handleSelect.bind(this);
 }
 
@@ -63,17 +65,35 @@ getView(){
     case 'signup':
       return <CreateAccount />
     case 'loggedin':
-      return <LoggedInView handleSelect={this.handleSelect} favoritesView={this.state.favoritesView} recipes={this.state.recipes} selected={this.state.selected} favorites={this.state.favorites}/>
+      return <LoggedInView
+              handleSelect={this.handleSelect}
+              renderFavorites={this.renderFavorites}
+              favoritesView={this.state.favoritesView}
+              recipes={this.state.recipes}
+              selected={this.state.selected}
+              favorites={this.state.favorites}
+              />
     default:
       return <Welcome />
   }
 }
 
-
 handleSelect(filter){
   this.setState({
     selected: filter
   });
+}
+
+renderFavorites(){
+  this.setState({
+    favoritesView: true
+  })
+}
+
+renderAllRecipes(){
+  this.setState({
+    favoritesView: false
+  })
 }
 
   render() {

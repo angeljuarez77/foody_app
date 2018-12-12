@@ -11,7 +11,7 @@ export default function Favorites(props){
 
   return(
     <div>
-        <FilterButtons handleSelect={props.handleSelect}/>
+        <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites}/>
         {
           props.selected
           ?

@@ -9,16 +9,17 @@ export default function LoggedInView(props) {
 
   return(
     <div>
-      <h1> Logged In View </h1>
+
+        <h1> Recipes </h1>
 
 
-      {
-          props.favoritesView
-          ?
-          <Favorites handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites}/>
-          :
-          <AllRecipes handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites}/>
-      }
+        {
+            props.favoritesView
+            ?
+            <Favorites renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites}/>
+            :
+            <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites}/>
+        }
 
     </div>
   )
