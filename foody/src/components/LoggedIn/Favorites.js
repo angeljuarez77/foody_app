@@ -13,7 +13,7 @@ export default function Favorites(props){
         {
           props.selected
           ?
-          props.recipes.filter(recipe => recipe.category === props.selected).map(recipe=>(
+          props.favorites.filter(recipe => recipe.category === props.selected).map(recipe=>(
             <Recipe
               key={recipe.id}
               url={recipe.url}
@@ -22,7 +22,7 @@ export default function Favorites(props){
             ))
 
             :
-            props.recipes.map(recipe=>(
+            props.favorites.map(recipe=>(
               <Recipe
                 key={recipe.id}
                 url={recipe.url}

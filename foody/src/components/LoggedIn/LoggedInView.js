@@ -12,6 +12,7 @@ export default function LoggedInView(props) {
 
       <button> Vegan </button>
       <button> Vegetarian </button>
+      <button> Clear Filters </button>
 
 
       {
