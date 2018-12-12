@@ -1,9 +1,7 @@
 import React from 'react';
 
-
-
-export default function LoginButton(){
+export default function LoginButton(props){
   return(
-    <button> Login </button>
+    <button onClick={ () => props.pageSwitch('login')}> Login </button>
   )
 }
