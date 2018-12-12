@@ -11,7 +11,6 @@ const { User, Recipe } = require('./models');
 const { userRouter } = require('./routes/users');
 const { recipeRouter } = require('./routes/recipes');
 
-
 const app = express();
 
 app.use(cors());
@@ -25,7 +24,6 @@ app.use('/users', userRouter);
 // to get all videos that had been favorites by users?
 
 // users/:id/fav
-
 
 app.listen(PORT, () => {
   console.log(`up and running on PORT ${PORT}`);

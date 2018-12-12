@@ -11,6 +11,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
+      view: '',
       recipes: [
             {
               id: 1,
@@ -96,8 +97,7 @@ renderFavorites(nextView){
 
     return (
       <div className="App">
-      {this.getView()}
-
+        {this.getView()}
       </div>
     );
   }
