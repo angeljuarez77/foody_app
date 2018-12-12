@@ -1,10 +1,12 @@
 import React from 'react';
 
 
-export default function Recipe(){
+export default function Recipe(props){
   return(
     <div>
-      <p> Recipe </p>
+      <h4> Recipe </h4>
+      <p>{props.title}</p>
+      <p>{props.url}</p>
     </div>
   )
 }

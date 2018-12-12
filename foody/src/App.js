@@ -3,6 +3,9 @@ import LoggedInView from './components/LoggedIn/LoggedInView.js';
 import Login from './components/LoggedOut/Login.js'
 import CreateAccount from './components/LoggedOut/CreateAccount.js'
 import Welcome from './components/Welcome.js'
+import AllRecipes from './components/LoggedIn/AllRecipes.js';
+
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -37,6 +40,7 @@ getView(){
   render() {
     return (
       <div className="App">
+      <AllRecipes recipes={this.state.recipes} selected={this.state.selected} />
       {this.getView()}
       </div>
     );
