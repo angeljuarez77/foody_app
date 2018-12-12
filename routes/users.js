@@ -59,7 +59,7 @@ userRouter.post('/', async (req, res) => {
       id,
       name,
     });
-    res.json(newUser);
+    res.json({ newUser, token });
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
