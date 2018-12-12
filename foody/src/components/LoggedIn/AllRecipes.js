@@ -1,6 +1,5 @@
 import React from 'react';
 import Recipe from '../Recipe.js';
-import Filter from './Filter.js';
 import Favorites from './Favorites.js';
 
 
@@ -9,10 +8,28 @@ export default function AllRecipes(props){
   return(
 
     <div>
-      <h3> Render Recipes </h3>
-      <h2> filter: </h2>
-      <Filter recipes={props.recipes} selected={props.selected}/>
-      <Favorites />
+
+          {
+            props.selected
+            ?
+            props.recipes.filter(recipe => recipe.category === props.selected).map(recipe=>(
+              <Recipe
+                key={recipe.id}
+                url={recipe.url}
+                title={recipe.title}
+                />
+              ))
+
+              :
+              props.recipes.map(recipe=>(
+                <Recipe
+                  key={recipe.id}
+                  url={recipe.url}
+                  title={recipe.title}
+                  />
+                ))
+          }
+
     </div>
   )
 }

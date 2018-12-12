@@ -10,14 +10,26 @@ export default function Favorites(props){
 
   return(
     <div>
-    {selectedRecipes.map(recipe=>(
-      <Recipe
-        key={recipe.id}
-        url={recipe.url}
-        title={recipe.title}
-        />
-      ))
-    }
+        {
+          props.selected
+          ?
+          props.recipes.filter(recipe => recipe.category === props.selected).map(recipe=>(
+            <Recipe
+              key={recipe.id}
+              url={recipe.url}
+              title={recipe.title}
+              />
+            ))
+
+            :
+            props.recipes.map(recipe=>(
+              <Recipe
+                key={recipe.id}
+                url={recipe.url}
+                title={recipe.title}
+                />
+              ))
+        }
     </div>
   )
 }

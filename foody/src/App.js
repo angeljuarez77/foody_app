@@ -4,6 +4,7 @@ import Login from './components/LoggedOut/Login.js'
 import CreateAccount from './components/LoggedOut/CreateAccount.js'
 import Welcome from './components/Welcome.js'
 import AllRecipes from './components/LoggedIn/AllRecipes.js';
+import Recipe from './components/Recipe.js';
 
 
 class App extends Component {
@@ -20,37 +21,36 @@ class App extends Component {
             },
             {
               id: 2,
-              url: 'youtube.com/amazingvideo',
-              title: 'Amazing Video',
+              url: 'youtube.com/food1',
+              title: 'Food 1',
               category: 'Vegan'
             },
             {
               id: 3,
-              url: 'youtube.com/funnyanimal',
-              title: 'Funny Animal',
+              url: 'youtube.com/food2',
+              title: 'Food 2',
               category: ''
             }
         ],
-      selected: 'Vegetarian',
+      selected: '',
       filterResults: [],
       favorites: [
         {
           id: 3,
-          url: 'youtube.com/funnyanimal',
-          title: 'Funny Animal',
-          category: ''
+          url: 'youtube.com/fav1',
+          title: 'veg fav',
+          category: 'Vegetarian'
         },
         {
           id: 2,
-          url: 'youtube.com/amazingvideo',
-          title: 'Amazing Video',
+          url: 'youtube.com/fav2',
+          title: 'vegan fav',
           category: 'Vegan'
         }
-      ]
+      ],
+      favoritesView : true
     }
-
-    this.filterResult = this.filterResult.bind(this);
-  }
+}
 
 
 
@@ -62,23 +62,12 @@ getView(){
     case 'signup':
       return <CreateAccount />
     case 'loggedin':
-      return <LoggedInView filterResult={this.filterResult} recipes={this.state.recipes} selected={this.state.selected} favorites={this.state.favorites}/>
+      return <LoggedInView favoritesView={this.state.favoritesView} recipes={this.state.recipes} selected={this.state.selected} favorites={this.state.favorites}/>
     default:
       return <Welcome />
   }
 }
 
-
-
-filterResult(arr){
-
-  const selectedRecipes = arr.filter(recipe => recipe.category === this.state.selected)
-  console.log(selectedRecipes);
-    this.setState({
-      filterResults:selectedRecipes
-    })
-  console.log(selectedRecipes);
-}
 
 
 
