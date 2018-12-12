@@ -39,7 +39,7 @@ class App extends Component {
       view: 'loggedin'
     }
     this.renderFavorites = this.renderFavorites.bind(this);
-
+  }
 
   async getRecipes() {
     const results = await axios.get(`${BASE_URL}/recipes`);
