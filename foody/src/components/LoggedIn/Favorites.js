@@ -9,16 +9,15 @@ export default function Favorites(props){
   )
 
   return(
-    <div id="recipeframe">
+    <div>
         {
           props.selected
           ?
           props.recipes.filter(recipe => recipe.category === props.selected).map(recipe=>(
-            <Recipe 
+            <Recipe
               key={recipe.id}
               url={recipe.url}
               title={recipe.title}
-              vidId={recipe.videoid}
               />
             ))
 
@@ -28,7 +27,6 @@ export default function Favorites(props){
                 key={recipe.id}
                 url={recipe.url}
                 title={recipe.title}
-                vidId={recipe.videoid}
                 />
               ))
         }
