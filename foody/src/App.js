@@ -52,31 +52,32 @@ class App extends Component {
     }
 }
 
+setView = (view) =>{
+  this.setState({
+    view:view
+  })
+}
 
 
 getView(){
   const view = this.state.view;
   switch (view) {
     case 'login':
-      return <Login />
+      return <Login pageSwitch = {this.setView}/>
     case 'signup':
-      return <CreateAccount />
+      return <CreateAccount pageSwitch = {this.setView}/>
     case 'loggedin':
       return <LoggedInView favoritesView={this.state.favoritesView} recipes={this.state.recipes} selected={this.state.selected} favorites={this.state.favorites}/>
     default:
-      return <Welcome />
+      return <Welcome pageSwitch={this.setView}/>
   }
 }
-
-
-
-
+  
   render() {
 
     return (
       <div className="App">
       {this.getView()}
-
       </div>
     );
   }
