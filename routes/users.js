@@ -1,11 +1,12 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 const { passport, sign } = require('../auth');
 const { User } = require('../models');
 const { Recipe } = require('../models');
 
 const userRouter = express();
-
+userRouter.use(cors());
 userRouter.use((req, res, next) => {
   // eslint-disable-next-line no-console
   console.log('using user Router');
@@ -54,12 +55,12 @@ userRouter.get('/:id/favorites', async (req, res) => {
 userRouter.post('/', async (req, res) => {
   try {
     const newUser = await User.create(req.body);
-    const { id, name } = newUser.dataValues;
-    const token = sign({
-      id,
-      name,
-    });
-    res.json({ newUser, token });
+    // const { id, name } = newUser.dataValues;
+    // const token = sign({
+    //   id,
+    //   name,
+    // });
+    // res.json({ newUser, token });
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);

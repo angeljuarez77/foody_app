@@ -22,6 +22,8 @@ const User = sequelize.define('user', {
   password: Sequelize.STRING,
 });
 
+User.beforeCreate();
+
 Recipe.belongsToMany(User, { through: 'favorites' });
 User.belongsToMany(Recipe, { through: 'favorites' });
 

@@ -3,18 +3,17 @@ import React from 'react';
 export default function UserForm(props){
   return(
     <div>
-      <h2> Form </h2>
       <form>
         <label>
-          Username
-          <input/>
+          Username:
+          <input type="text"/>
         </label>
         <label>
-          Password
-          <input/>
+          Password:
+          <input />
         </label>
       </form>
-      <button>Submit</button>
+      <input type="submit" value="Submit"></input>
     </div>
   )
 }
