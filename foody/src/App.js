@@ -32,9 +32,13 @@ class App extends Component {
           category: 'Vegan'
         }
       ],
-      favoritesView : true
+      favoritesView : true,
+      categories : ['Vegan', 'Vegetarian'],
+      selected: '',
+      filterResults: [],
+      view: 'loggedin'
     }
-}
+    this.renderFavorites = this.renderFavorites.bind(this);
 
 
   async getRecipes() {
@@ -78,6 +82,7 @@ setView = (view) =>{
   this.setState({
     view:view
   })
+    this.handleSelect = this.handleSelect.bind(this);
 }
 
 
@@ -85,21 +90,41 @@ getView(){
   const view = this.state.view;
   switch (view) {
     case 'login':
-      return <Login pageSwitch = {this.setView}/>
+      return <Login />
     case 'signup':
-      return <CreateAccount pageSwitch = {this.setView}/>
+      return <CreateAccount />
     case 'loggedin':
-      return <LoggedInView favoritesView={this.state.favoritesView} recipes={this.state.recipes} selected={this.state.selected} favorites={this.state.favorites}/>
+      return <LoggedInView
+              handleSelect={this.handleSelect}
+              renderFavorites={this.renderFavorites}
+              favoritesView={this.state.favoritesView}
+              recipes={this.state.recipes}
+              selected={this.state.selected}
+              favorites={this.state.favorites}
+
+              />
     default:
-      return <Welcome pageSwitch={this.setView}/>
+      return <Welcome />
   }
+}
+
+handleSelect(filter){
+  this.setState({
+    selected: filter
+  });
+}
+
+renderFavorites(nextView){
+  this.setState({
+    favoritesView: nextView
+  })
 }
 
   render() {
 
     return (
       <div className="App">
-      {this.getView()}
+        {this.getView()}
       </div>
     );
   }
