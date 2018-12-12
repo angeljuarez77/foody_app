@@ -11,7 +11,6 @@ const { User, Recipe } = require('./models');
 const {userRouter } = require('./routes/users');
 const {recipeRouter } = require('./routes/recipes');
 
-
 const app = express();
 
 app.use(cors());
@@ -19,7 +18,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json())
 app.use('/recipes', recipeRouter);
 app.use('/users', userRouter);
-
 
 app.listen(PORT, () => {
   console.log(`up and running on PORT ${PORT}`);
