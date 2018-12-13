@@ -8,7 +8,7 @@ export default function CreateAccount(props){
     <div>
       <h1> Create User Account </h1>
       <UserForm />
-      <LoginButton  pageSwitch = {props.pageSwitch}/>
+      <LoginButton  pageSwitch ={props.pageSwitch}/>
     </div>
   )
 }

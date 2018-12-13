@@ -1,6 +1,7 @@
 import React from 'react';
 import Recipe from '../Recipe.js';
 import Favorites from './Favorites.js';
+import FilterButtons from './FilterButtons';
 
 
 export default function AllRecipes(props){

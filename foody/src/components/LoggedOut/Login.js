@@ -9,7 +9,7 @@ export default function Login(props){
     <div>
       <h1> Login </h1>
       <UserForm />
-      <SignUpButton pageSwitch = {props.pageSwitch}/>
+      <SignUpButton pageSwitch ={props.pageSwitch}/>
     </div>
   )
 }
