@@ -11,12 +11,11 @@ const sequelize = new Sequelize({
 });
 
 const Recipe = sequelize.define('recipe', {
-  url: Sequelize.STRING,
-  videoid:Sequelize.STRING,
+  vidId: Sequelize.STRING,
   title: Sequelize.STRING,
   description: Sequelize.STRING,
-  category: Sequelize.STRING,
-  rating: Sequelize.INTEGER,
+  category: { type: Sequelize.STRING, allowNull: true},
+  rating: { type: Sequelize.STRING, allowNull: true},
 });
 
 const User = sequelize.define('user', {

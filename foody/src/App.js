@@ -39,6 +39,8 @@ class App extends Component {
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.submitRecipe = this.submitRecipe.bind(this);
     this.setView = this.setView.bind(this);
     this.postNew = this.postNew.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -86,6 +88,9 @@ class App extends Component {
             recipes={this.state.recipes}
             selected={this.state.selected}
             favorites={this.state.favorites}
+            recipeForm={this.state.recipeForm}
+            handleChange={this.handleChange}
+            submitRecipe={this.submitRecipe}
           />
         );
       default:
@@ -93,6 +98,35 @@ class App extends Component {
     }
   }
 
+  handleChange(e) {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      prevState,
+      recipeForm: {
+        ...prevState.recipeForm,
+        [name]: value
+      }
+    }));
+  }
+
+async submitRecipe(e) {
+  e.preventDefault();
+  try {
+    await axios.post(`${BASE_URL}/recipes`, this.state.recipeForm);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    this.setState({
+      recipeForm: {
+        vidId: '',
+        title: '',
+        description: '',
+        category: '',
+        rating: ''
+      }
+    });
+  }
+}
 
   handleSelect(filter) {
     this.setState({
