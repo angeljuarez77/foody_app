@@ -33,6 +33,13 @@ class App extends Component {
       selected: '',
       filterResults: [],
       view: 'loggedin',
+      recipeForm: {
+        vidId: '',
+        title: '',
+        description: '',
+        category: '',
+        rating: ''
+      }
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
