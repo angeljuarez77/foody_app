@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .App {
   text-align: center;
 }
@@ -29,4 +30,26 @@
   to {
     transform: rotate(360deg);
   }
+=======
+#recipeframe{
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+.recipeItems{
+  flex: 1;
+  margin-left: 20px;
+}
+.categoryBtns{
+  margin-left: 10px;
+  width: 85px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+
+#loggedinViewH1{
+  text-align: center;
+>>>>>>> 06c62154001dc329871c58bc48fe46a5a3367a42
 }

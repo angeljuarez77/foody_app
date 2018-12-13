@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const bcrypt = require('bcrypt');
 
 const sequelize = new Sequelize({
   database: 'foody_db',
@@ -11,7 +12,11 @@ const sequelize = new Sequelize({
 
 const Recipe = sequelize.define('recipe', {
   url: Sequelize.STRING,
+<<<<<<< HEAD
   videoid:Sequelize.STRING,
+=======
+  vidId:Sequelize.STRING,
+>>>>>>> 06c62154001dc329871c58bc48fe46a5a3367a42
   title: Sequelize.STRING,
   description: Sequelize.STRING,
   category: Sequelize.STRING,
@@ -21,6 +26,11 @@ const Recipe = sequelize.define('recipe', {
 const User = sequelize.define('user', {
   name: Sequelize.STRING,
   password: Sequelize.STRING,
+});
+
+User.beforeCreate( async (user, options) => {
+  const password_digest = await bcrypt.hash(user.password, 10);
+  user.password = password_digest;
 });
 
 Recipe.belongsToMany(User, { through: 'favorites' });
