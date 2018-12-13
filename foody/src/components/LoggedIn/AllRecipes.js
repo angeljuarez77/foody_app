@@ -6,18 +6,9 @@ import Favorites from './Favorites.js';
 export default function AllRecipes(props){
   console.log(props.recipes);
   return(
-
-<<<<<<< HEAD
-    <div >
-
-=======
     <div>
-<<<<<<< HEAD
-
-=======
       <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
->>>>>>> f5ab749a57649baecea457dbe7c174bc6b7df107
->>>>>>> 06c62154001dc329871c58bc48fe46a5a3367a42
+
           {
             props.selected
             ?
