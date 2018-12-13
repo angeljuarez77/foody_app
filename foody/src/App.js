@@ -112,8 +112,13 @@ class App extends Component {
 
   async saveUser(user) {
     try {
-      axios.post('http://localhost:3001/users/', user)
-    } catch (e) { console.error(e) } finally { this.setState({ newUser : { name: '', password: '' } }); }
+      axios.post('http://localhost:3001/users/', user);
+    } catch (e) { console.error(e); } finally { 
+      this.setState({
+        view: 'loggedin',
+        newUser: { name: '', password: '' },
+      });
+    }
   }
 
   renderFavorites(nextView) {
