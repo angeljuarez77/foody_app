@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import LoggedInView from './components/LoggedIn/LoggedInView';
 import Login from './components/LoggedOut/Login';
 import CreateAccount from './components/LoggedOut/CreateAccount';
 import Welcome from './components/Welcome';
-import AllRecipes from './components/LoggedIn/AllRecipes';
-import Recipe from './components/Recipe';
-import axios from 'axios';
-
+// import AllRecipes from './components/LoggedIn/AllRecipes';
+// import Recipe from './components/Recipe';
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -20,20 +19,20 @@ class App extends Component {
           id: 3,
           url: 'youtube.com/fav1',
           title: 'veg fav',
-          category: 'Vegetarian'
+          category: 'Vegetarian',
         },
         {
           id: 2,
           url: 'youtube.com/fav2',
           title: 'vegan fav',
-          category: 'Vegan'
-        }
+          category: 'Vegan',
+        },
       ],
       favoritesView: false,
       selected: '',
       filterResults: [],
-      view: 'loggedin'
-    }
+      view: 'loggedin',
+    };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -44,13 +43,13 @@ class App extends Component {
 
   async getRecipes() {
     const results = await axios.get(`${BASE_URL}/recipes`);
-    const recipes = results.data
+    const recipes = results.data;
     // console.log(recipes);
-    this.setState({ recipes })
+    this.setState({ recipes });
   }
 
   setView(view) {
-    this.setState({ view })
+    this.setState({ view });
   }
 
 
