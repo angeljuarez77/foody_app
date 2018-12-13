@@ -4,9 +4,9 @@ import LoggedInView from './components/LoggedIn/LoggedInView';
 import Login from './components/LoggedOut/Login';
 import CreateAccount from './components/LoggedOut/CreateAccount';
 import Welcome from './components/Welcome';
-// import AllRecipes from './components/LoggedIn/AllRecipes';
-// import Recipe from './components/Recipe';
-import './App.css';
+import AllRecipes from './components/LoggedIn/AllRecipes';
+import Recipe from './components/Recipe';
+import  './App.css';
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -37,30 +37,36 @@ class App extends Component {
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
-
-  async componentDidMount() {
-    await this.getRecipes();
-  }
+  // 
+  // async componentDidMount() {
+  //   await this.getRecipes();
+  // }
 
   async getRecipes() {
     const results = await axios.get(`${BASE_URL}/recipes`);
     const recipes = results.data;
-    // console.log(recipes);
+    console.log(recipes);
     this.setState({ recipes });
   }
 
-  setView(view) {
-    this.setState({ view });
+  async componentDidMount(){
+    await this.getRecipes()
+  }
+
+  setView = (view) => {
+    this.setState({
+      view: view
+    })
   }
 
 
   getView() {
-    const { view } = this.state;
-    switch (view) {
+    // const { view } = this.state;
+    switch (this.state.view) {
       case 'login':
-        return <Login />;
+        return <Login pageSwitch={this.setView}/>;
       case 'signup':
-        return <CreateAccount />;
+        return <CreateAccount  pageSwitch={this.setView}/>;
       case 'loggedin':
         return (
           <LoggedInView
@@ -94,7 +100,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.getView()}
+      {this.getView()}
       </div>
     );
   }

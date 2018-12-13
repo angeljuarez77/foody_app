@@ -1,6 +1,5 @@
 const { Recipe, User, Favorite } = require('./models');
 const { Op } = require('sequelize');
-const bcrypt = require('bcrypt-nodejs');
 
 async function createRecipe() {
   await Recipe.destroy({ where: {} });
@@ -8,15 +7,15 @@ async function createRecipe() {
     const recipe = await Recipe.bulkCreate([
       {
         url: 'https://www.youtube.com/watch?v=aafmrrx7Bh4',
+        videoid:'aafmrrx7Bh4',
         title: 'Traditional Shoyu Ramen',
-        vidId:'aafmrrx7Bh4',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: null,
         rating: 4
       },
       {
         url: 'https://www.youtube.com/watch?v=4zw4FJVcjhw',
-        vidId:'4zw4FJVcjhw',
+        videoid:'4zw4FJVcjhw',
         title: 'Breakfast Egg Bites',
         description: 'A great breakfast for on the go!',
         category: '',
@@ -24,7 +23,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=jfUpWuuO9_g',
-        vidId:'jfUpWuuO9_g',
+        videoid:'jfUpWuuO9_g',
         title: 'Vegetable Rice Recipe',
         description: 'Delicious.',
         category: 'Vegan',
@@ -32,7 +31,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=r1ZLSbQ0r0I',
-        vidId:'r1ZLSbQ0r0I',
+        videoid:'r1ZLSbQ0r0I',
         title: 'French Toast',
         description: "Learn how Crouton Crackerjacks makes simple yet delicious french toast! There is nothing fancy here because simple is better with this. About the best french toast you'll have anywhere!",
         category: 'Vegetarian',
@@ -40,7 +39,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=VRSuK1_vlBw',
-        vidId:'VRSuK1_vlBw',
+        videoid:'VRSuK1_vlBw',
         title: 'Spinach Artichoke Stuffed Garlic Bread',
         description: 'An easy way to combine dip and bread into an all-inclusive appetizer!',
         category: 'Vegetarian',
@@ -48,7 +47,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=tvtXoG_Re7s',
-        vidId:'tvtXoG_Re7s',
+        videoid:'tvtXoG_Re7s',
         title: 'Vegetarian Quesadillas',
         description: "Easy & delicious",
         category: 'Vegetarian',
@@ -57,7 +56,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=E4MTyvNp7MQ',
-        vidId:'E4MTyvNp7MQ',
+        videoid:'E4MTyvNp7MQ',
         title: 'Vegan  Mac & Cheese',
         description: 'Delicious Soul Food',
         category: 'Vegan',
@@ -66,7 +65,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=Ywd6fvDyVyQ',
-        vidId:'Ywd6fvDyVyQ',
+        videoid:'Ywd6fvDyVyQ',
         title: 'Loaded Cheese Stuffed Mashed Potato Balls',
         description: 'Enjoy!',
         category: '',
@@ -74,7 +73,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=N1wAkkstSUY',
-        vidId:'N1wAkkstSUY',
+        videoid:'N1wAkkstSUY',
         title: 'Mini Chicken Pot Pies',
         description: 'Quicky & Easy',
         category: '',
@@ -89,22 +88,17 @@ async function createRecipe() {
 async function createUser() {
   await User.destroy({ where: {} });
   try {
-
-    // const firstUser = { name: 'Leonidas', password: bcrypt.hashSync('abcdefgangsta', 12) };
-    // const secondUser = { name: 'Chef Ramsey', password: bcrypt.hashSync('cookingislife', 12) };
-    // const thirdUser = { name: 'some guy', password: bcrypt.hashSync('imhungry', 12) };
-
-    await User.bulkCreate([
+    const user = await User.bulkCreate([
       {
         name: 'Leonidas',
         password: 'abcdefgangsta',
       },
       {
         name: 'Chef Ramsey',
-        password: 'cookingislife'
+        password: 'cookingislife',
       },
       {
-        name: 'some guy',
+        name: 'Some guy',
         password: 'imhungry',
       },
 
@@ -126,7 +120,6 @@ async function addFavorite() {
     console.log(e);
   }
 }
-
 
 async function run() {
   try {
