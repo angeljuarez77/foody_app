@@ -94,6 +94,7 @@ class App extends Component {
     this.setState({
       favoritesView: nextView
     })
+  
   }
 
   render() {

@@ -22,15 +22,20 @@ export default function LoggedInView(props) {
             recipes={props.recipes}
             selected={props.selected}
             favorites={props.favorites}
+            renderFavorites={props.renderFavorites}
+            handleSelect={props.handleSelect}
+            favoritesView={props.favoritesView}
           />
           :
-          <AllRecipes recipes={props.recipes} selected={props.selected} favorites={props.favorites}/>
+          <AllRecipes recipes={props.recipes} selected={props.selected} favorites={props.favorites} renderFavorites={props.renderFavorites}
+          handleSelect={props.handleSelect}
+          favoritesView={props.favoritesView}
+          />
       }
 
     <div>
 
-        {/* <h1> Recipes </h1>
-
+        <h1> Recipes </h1>
 
         {
             props.favoritesView
@@ -38,7 +43,7 @@ export default function LoggedInView(props) {
             <Favorites renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
             :
             <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
-        } */}
+        }
 
         <RecipeForm />
     </div>
