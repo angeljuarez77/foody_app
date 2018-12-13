@@ -8,6 +8,10 @@ import RecipeForm from './RecipeForm.js';
 export default function LoggedInView(props) {
   console.log(props.recipes)
   return(
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     <div className="loggedinView" >
       <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
 
@@ -21,14 +25,23 @@ export default function LoggedInView(props) {
             recipes={props.recipes}
             selected={props.selected}
             favorites={props.favorites}
+            renderFavorites={props.renderFavorites}
+            handleSelect={props.handleSelect}
+            favoritesView={props.favoritesView}
           />
           :
-          <AllRecipes recipes={props.recipes} selected={props.selected} favorites={props.favorites}/>
+          <AllRecipes recipes={props.recipes} selected={props.selected} favorites={props.favorites} renderFavorites={props.renderFavorites}
+          handleSelect={props.handleSelect}
+          favoritesView={props.favoritesView}
+          />
       }
 
+<<<<<<< HEAD
+=======
+    <div>
+>>>>>>> master
 
         <h1> Recipes </h1>
-
 
         {
             props.favoritesView
@@ -39,6 +52,7 @@ export default function LoggedInView(props) {
         }
 
         <RecipeForm />
+    </div>
     </div>
   )
 };

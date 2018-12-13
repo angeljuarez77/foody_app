@@ -6,9 +6,15 @@ import FilterButtons from './FilterButtons.js';
 export default function AllRecipes(props){
   console.log(props.recipes);
   return(
+<<<<<<< HEAD
 
     <div>
       <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
+=======
+    <div>
+      <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
+
+>>>>>>> master
           {
             props.selected
             ?
