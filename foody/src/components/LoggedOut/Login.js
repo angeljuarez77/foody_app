@@ -3,13 +3,11 @@ import UserForm from './UserForm.js';
 
 import SignUpButton from './SignUpButton';
 
-
-export default function Login(props){
-  return(
+export default function Login(props) {
+  return (
     <div>
-      <h1> Login </h1>
-      <UserForm />
+      <UserForm onSubmit={props.onSubmit} onChange={props.onChange} />
       <SignUpButton pageSwitch = {props.pageSwitch}/>
     </div>
-  )
+  );
 }

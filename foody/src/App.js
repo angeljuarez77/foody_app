@@ -42,6 +42,7 @@ class App extends Component {
     this.setView = this.setView.bind(this);
     this.postNew = this.postNew.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.validateLog = this.validateLog.bind(this);
   }
 
   async componentDidMount() {
@@ -63,11 +64,11 @@ class App extends Component {
     const { view } = this.state;
     switch (view) {
       case 'login':
-        return <Login />;
+        return <Login onSubmit={this.validateLog} onChange={this.onChange} />;
       case 'signup':
         return (
           // put new user inside of state
-          <CreateAccount onSubmit={this.postNew} onChange={this.onChange}/>
+          <CreateAccount onSubmit={this.postNew} onChange={this.onChange} />
         );
       case 'loggedin':
         return (
@@ -92,17 +93,25 @@ class App extends Component {
       selected: filter,
     });
   }
+  
+  validateLog(e) {
+    e.preventDefault();
+    axios.post('http://localhost:3001/users/login', this.state.newUser).then(this.setState({
+      view: 'loggedin',
+      newUser: {
+
+      },
+    }));
+  }
 
   onChange(e) {
     const changed = e.target.id;
     const info = e.target.value;
-    console.log(changed);
-    console.log(info);
     this.setState(prevState => ({
       newUser: {
         ...prevState.newUser, [changed]: info
       }
-    }))
+    }));
   }
 
   postNew(e) {
@@ -113,6 +122,7 @@ class App extends Component {
   async saveUser(user) {
     try {
       axios.post('http://localhost:3001/users/', user);
+    // eslint-disable-next-line no-console
     } catch (e) { console.error(e); } finally { 
       this.setState({
         view: 'loggedin',
