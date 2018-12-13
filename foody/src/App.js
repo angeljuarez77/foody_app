@@ -40,10 +40,8 @@ class App extends Component {
       view: 'loggedin'
     }
     this.renderFavorites = this.renderFavorites.bind(this);
-<<<<<<< HEAD
 }
-=======
->>>>>>> f5ab749a57649baecea457dbe7c174bc6b7df107
+
 
   async getRecipes() {
     const results = await axios(`${BASE_URL}/recipes`);
@@ -75,21 +73,13 @@ getView(){
     case 'signup':
       return <CreateAccount />
     case 'loggedin':
-<<<<<<< HEAD
       return <LoggedInView className="recipeframe"
-=======
-      return <LoggedInView
->>>>>>> f5ab749a57649baecea457dbe7c174bc6b7df107
               handleSelect={this.handleSelect}
               renderFavorites={this.renderFavorites}
               favoritesView={this.state.favoritesView}
               recipes={this.state.recipes}
               selected={this.state.selected}
               favorites={this.state.favorites}
-<<<<<<< HEAD
-=======
-
->>>>>>> f5ab749a57649baecea457dbe7c174bc6b7df107
               />
     default:
       return <Welcome />
