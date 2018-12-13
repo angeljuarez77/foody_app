@@ -2,7 +2,7 @@ import React from 'react';
 import AllRecipes from './AllRecipes.js';
 import Recipe from '../Recipe.js';
 import Favorites from './Favorites.js';
-
+import RecipeForm from './RecipeForm.js';
 
 
 export default function LoggedInView(props) {
@@ -21,6 +21,7 @@ export default function LoggedInView(props) {
             <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
         }
 
+        <RecipeForm />
     </div>
   )
 };
