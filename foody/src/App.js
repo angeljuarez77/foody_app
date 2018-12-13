@@ -6,7 +6,7 @@ import CreateAccount from './components/LoggedOut/CreateAccount';
 import Welcome from './components/Welcome';
 // import AllRecipes from './components/LoggedIn/AllRecipes';
 // import Recipe from './components/Recipe';
-import  './App.css';
+import './App.css';
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -38,9 +38,8 @@ class App extends Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-
   async componentDidMount() {
-    await this.getRecipes()
+    await this.getRecipes();
   }
 
   async getRecipes() {
@@ -48,10 +47,6 @@ class App extends Component {
     const recipes = results.data;
     // console.log(recipes);
     this.setState({ recipes });
-  }
-
-  async componentDidMount(){
-    await this.getRecipes()
   }
 
   setView(view) {
@@ -63,36 +58,37 @@ class App extends Component {
     const { view } = this.state;
     switch (view) {
       case 'login':
-        return <Login />
+        return <Login />;
       case 'signup':
-        return <CreateAccount />
+        return <CreateAccount />;
       case 'loggedin':
         return (
           <LoggedInView
+            className="recipeframe"
             handleSelect={this.handleSelect}
             renderFavorites={this.renderFavorites}
             favoritesView={this.state.favoritesView}
             recipes={this.state.recipes}
             selected={this.state.selected}
             favorites={this.state.favorites}
-            />
-        )
+          />
+        );
       default:
-        return <Welcome />
+        return <Welcome />;
     }
-
+  }
 
 
   handleSelect(filter) {
     this.setState({
-      selected: filter
+      selected: filter,
     });
   }
 
   renderFavorites(nextView) {
     this.setState({
-      favoritesView: nextView
-    })
+      favoritesView: nextView,
+    });
   }
 
   render() {
