@@ -33,10 +33,15 @@ class App extends Component {
       selected: '',
       filterResults: [],
       view: '',
+      newUser: {
+
+      },
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.setView = this.setView.bind(this);
+    this.postNew = this.postNew.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   async componentDidMount() {
@@ -54,14 +59,16 @@ class App extends Component {
     this.setState({ view });
   }
 
-
   getView() {
     const { view } = this.state;
     switch (view) {
       case 'login':
         return <Login />;
       case 'signup':
-        return <CreateAccount />;
+        return (
+          // put new user inside of state
+          <CreateAccount onSubmit={this.postNew} onChange={this.onChange}/>
+        );
       case 'loggedin':
         return (
           <LoggedInView
@@ -84,6 +91,29 @@ class App extends Component {
     this.setState({
       selected: filter,
     });
+  }
+
+  onChange(e) {
+    const changed = e.target.id;
+    const info = e.target.value;
+    console.log(changed);
+    console.log(info);
+    this.setState(prevState => ({
+      newUser: {
+        ...prevState.newUser, [changed]: info
+      }
+    }))
+  }
+
+  postNew(e) {
+    e.preventDefault();
+    this.saveUser(this.state.newUser);
+  }
+
+  async saveUser(user) {
+    try {
+      axios.post('http://localhost:3001/users/', user)
+    } catch (e) { console.error(e) } finally { this.setState({ newUser : { name: '', password: '' } }); }
   }
 
   renderFavorites(nextView) {
