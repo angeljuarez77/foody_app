@@ -8,44 +8,22 @@ h1 {
 font-size: 1rem;
 }
 
-
 .logged-out-view {
-  margin: auto 0;
   text-align: center;
-
 }
-
-#login {
-
-}
-
-
 
 /* Sign Up Page */
 
-
-
+.loggedoutview-button {
+  margin: 5px;
+}
 
 /* Form */
-
-h2 {
-
-}
 
 form {
 margin-top: 30px;
 }
 
-label {
-
-}
-
-input {
-
-}
-p {
-
-}
 #submit-button {
 margin-bottom: 30px;
 }

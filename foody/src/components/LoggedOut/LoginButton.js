@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from 'reactstrap';
+import './LoggedOut.css';
 
 export default function LoginButton(props) {
   return(
-    <button onClick={ () => props.pageSwitch('login')} className="logbtns"> Login </button>
+    <Button onClick={ () => props.pageSwitch('login')} color="secondary" size="sm" className="loggedoutview-button"> Login </Button>
   )
 }
