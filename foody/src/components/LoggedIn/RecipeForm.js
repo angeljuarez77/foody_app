@@ -5,7 +5,7 @@ export default function RecipeForm(props) {
     <div>
       <form onSubmit={props.submitRecipe} class='add-recipe-form'>
         <label>Youtube Link ID
-        <input
+          <input
           type="text"
           name="vidId"
           value={props.recipeForm.vidId}
