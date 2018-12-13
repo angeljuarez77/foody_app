@@ -1,15 +1,13 @@
 import React from 'react';
 import UserForm from './UserForm.js';
+import './LoggedOut.css'
 
 import SignUpButton from './SignUpButton';
-
-
-export default function Login(props){
-  return(
+export default function Login(props) {
+  return (
     <div>
-      <h1> Login </h1>
-      <UserForm />
-      <SignUpButton pageSwitch = {props.pageSwitch}/>
+      <UserForm onSubmit={props.onSubmit} onChange={props.onChange} />
+      <p> Don't have an account? </p> <SignUpButton pageSwitch = {props.pageSwitch}/>
     </div>
-  )
+  );
 }

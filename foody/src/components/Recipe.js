@@ -2,6 +2,7 @@ import React from 'react';
 import YouTube from 'react-youtube';
 
 
+
 export default function Recipe(props){
   const opts= {
       height: '250',
@@ -14,7 +15,7 @@ export default function Recipe(props){
     <div className="recipeItems">
       <h3>{props.title}</h3>
     <div className="videoframe">
-      <YouTube videoId={props.videoId} opts ={opts}/>
+      <YouTube videoId={props.vidId} opts ={opts}/>
     </div>
     </div>
   )

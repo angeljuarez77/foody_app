@@ -4,6 +4,7 @@
   "description": "",
   "main": "models.js",
   "dependencies": {
+    "@material-ui/core": "^3.6.2",
     "bcrypt": "^3.0.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
@@ -34,7 +35,8 @@
     "dev": "nodemon server.js",
     "resetDb": "node resetDb.js",
     "seed": "node seed.js",
-    "debug": "nodemon --inspect-brk server.js"
+    "debug": "nodemon --inspect-brk server.js",
+    "populate": "node resetDb.js && node seed.js"
   },
   "repository": {
     "type": "git",
