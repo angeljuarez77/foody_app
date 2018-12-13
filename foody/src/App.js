@@ -32,12 +32,12 @@ class App extends Component {
       favoritesView: false,
       selected: '',
       filterResults: [],
-      view: 'loggedin',
+      view: 'welcome',
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
-  // 
+  //
   // async componentDidMount() {
   //   await this.getRecipes();
   // }
