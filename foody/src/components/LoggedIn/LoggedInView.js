@@ -8,10 +8,7 @@ import RecipeForm from './RecipeForm.js';
 export default function LoggedInView(props) {
   console.log(props.recipes)
   return(
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     <div className="loggedinView" >
       <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
 
@@ -36,10 +33,7 @@ export default function LoggedInView(props) {
           />
       }
 
-<<<<<<< HEAD
-=======
     <div>
->>>>>>> master
 
         <h1> Recipes </h1>
 
