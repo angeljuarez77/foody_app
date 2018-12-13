@@ -43,6 +43,7 @@ class App extends Component {
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
@@ -78,11 +79,22 @@ class App extends Component {
             recipes={this.state.recipes}
             selected={this.state.selected}
             favorites={this.state.favorites}
+            recipeForm={this.state.recipeForm}
+            handleChange={this.handleChange}
           />
         );
       default:
         return <Welcome />;
     }
+  }
+
+  handleChange(e) {
+    const { name, value } = e.target
+    this.setState({
+      recipeForm: {
+        [name]: value
+      }
+    });
   }
 
 
