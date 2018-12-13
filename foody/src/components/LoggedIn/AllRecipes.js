@@ -4,19 +4,20 @@ import Favorites from './Favorites.js';
 
 
 export default function AllRecipes(props){
-
+  console.log(props.recipes);
   return(
 
-    <div>
+    <div >
 
           {
             props.selected
             ?
-            props.recipes.filter(recipe => recipe.category === props.selected).map(recipe=>(
+            props.recipes.filter(recipe => recipe.category === props.selected).map(recipe =>(
               <Recipe
                 key={recipe.id}
                 url={recipe.url}
                 title={recipe.title}
+                vidId={recipe.videoid}
                 />
               ))
 
@@ -26,6 +27,7 @@ export default function AllRecipes(props){
                   key={recipe.id}
                   url={recipe.url}
                   title={recipe.title}
+                  vidId={recipe.videoid}
                   />
                 ))
           }

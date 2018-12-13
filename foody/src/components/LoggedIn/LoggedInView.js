@@ -5,19 +5,22 @@ import Favorites from './Favorites.js';
 
 
 export default function LoggedInView(props) {
-
+  console.log(props.recipes)
   return(
-    <div>
-      <h1> Logged In View </h1>
+    <div className="loggedinView" >
+      <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
 
-      <button> Vegan </button>
-      <button> Vegetarian </button>
-
-
+      <button className="categoryBtns"> Vegan </button>
+      <button className="categoryBtns"> Vegetarian </button>
+    
       {
           props.favoritesView
           ?
-          <Favorites recipes={props.recipes} selected={props.selected} favorites={props.favorites}/>
+          <Favorites
+            recipes={props.recipes}
+            selected={props.selected}
+            favorites={props.favorites}
+          />
           :
           <AllRecipes recipes={props.recipes} selected={props.selected} favorites={props.favorites}/>
       }

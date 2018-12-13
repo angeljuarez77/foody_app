@@ -8,12 +8,14 @@ async function createRecipe() {
       {
         url: 'https://www.youtube.com/watch?v=aafmrrx7Bh4',
         title: 'Traditional Shoyu Ramen',
+        vidId:'aafmrrx7Bh4',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: null,
         rating: 4
       },
       {
         url: 'https://www.youtube.com/watch?v=4zw4FJVcjhw',
+        vidId:'4zw4FJVcjhw',
         title: 'Breakfast Egg Bites',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: null,
@@ -21,6 +23,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=jfUpWuuO9_g',
+        vidId:'jfUpWuuO9_g',
         title: 'Vegetable Rice Recipe',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: 'vegan',
@@ -28,6 +31,7 @@ async function createRecipe() {
       },
       {
         url: 'https://www.youtube.com/watch?v=r1ZLSbQ0r0I',
+        vidId:'r1ZLSbQ0r0I',
         title: 'French Toast',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         category: null,

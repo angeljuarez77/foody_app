@@ -9,7 +9,7 @@ export default function Favorites(props){
   )
 
   return(
-    <div>
+    <div id="recipeframe">
         {
           props.selected
           ?
@@ -18,6 +18,7 @@ export default function Favorites(props){
               key={recipe.id}
               url={recipe.url}
               title={recipe.title}
+              vidId={recipe.videoid}
               />
             ))
 
@@ -27,6 +28,7 @@ export default function Favorites(props){
                 key={recipe.id}
                 url={recipe.url}
                 title={recipe.title}
+                videoId={recipe.vidId}
                 />
               ))
         }
