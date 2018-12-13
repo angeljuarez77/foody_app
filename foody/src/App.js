@@ -6,7 +6,7 @@ import CreateAccount from './components/LoggedOut/CreateAccount';
 import Welcome from './components/Welcome';
 // import AllRecipes from './components/LoggedIn/AllRecipes';
 // import Recipe from './components/Recipe';
-import  './App.css'
+import  './App.css';
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -35,10 +35,9 @@ class App extends Component {
       view: 'loggedin',
     };
     this.renderFavorites = this.renderFavorites.bind(this);
-}
-
     this.handleSelect = this.handleSelect.bind(this);
   }
+
 
   async componentDidMount() {
     await this.getRecipes()
@@ -51,9 +50,9 @@ class App extends Component {
     this.setState({ recipes });
   }
 
-async componentDidMount(){
-  await this.getRecipes()
-}
+  async componentDidMount(){
+    await this.getRecipes()
+  }
 
   setView(view) {
     this.setState({ view });
