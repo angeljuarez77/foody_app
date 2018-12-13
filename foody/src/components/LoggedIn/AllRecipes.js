@@ -4,12 +4,12 @@ import Favorites from './Favorites.js';
 import FilterButtons from './FilterButtons';
 
 
-export default function AllRecipes(props){
+export default function AllRecipes(props) {
   console.log(props.recipes);
   return(
+
     <div>
       <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
-
           {
             props.selected
             ?
