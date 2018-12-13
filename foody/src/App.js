@@ -103,7 +103,6 @@ class App extends Component {
       e.preventDefault();
       const user = this.state.newUser;
       axios.post('http://localhost:3001/users/', user);
-      console.log(user);
     } catch (e) {console.error(e)}
     finally{
       this.setState({
