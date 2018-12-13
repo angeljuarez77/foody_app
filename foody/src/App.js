@@ -6,7 +6,7 @@ import Welcome from './components/Welcome';
 import AllRecipes from './components/LoggedIn/AllRecipes';
 import Recipe from './components/Recipe';
 import axios from 'axios';
-
+import  './App.css'
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -35,6 +35,8 @@ class App extends Component {
       view: 'loggedin'
     }
     this.renderFavorites = this.renderFavorites.bind(this);
+}
+
     this.handleSelect = this.handleSelect.bind(this);
   }
 
@@ -43,11 +45,16 @@ class App extends Component {
   }
 
   async getRecipes() {
-    const results = await axios.get(`${BASE_URL}/recipes`);
+    const results = await axios(`${BASE_URL}/recipes`);
     const recipes = results.data
-    // console.log(recipes);
-    this.setState({ recipes })
+    this.setState({
+      recipes:recipes
+    })
   }
+
+async componentDidMount(){
+  await this.getRecipes()
+}
 
   setView(view) {
     this.setState({ view })
@@ -75,7 +82,8 @@ class App extends Component {
       default:
         return <Welcome />
     }
-  }
+
+
 
   handleSelect(filter) {
     this.setState({
