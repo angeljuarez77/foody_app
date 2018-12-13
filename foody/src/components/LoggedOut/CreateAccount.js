@@ -5,8 +5,8 @@ import './LoggedOut.css'
 
 
 
-export default function CreateAccount(props){
-  return(
+export default function CreateAccount(props) {
+  return (
     <div class='logged-out-view' id='sign-up'>
       <h1> Create User Account </h1>
 
