@@ -3,7 +3,6 @@ import React from 'react';
 export default function UserForm(props){
   return(
     <div>
-      <h2> Form </h2>
       <form class='login-signup-form'>
         <label class='login-signup-label' id='username-form-label'>
           Username
