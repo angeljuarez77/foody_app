@@ -1,15 +1,15 @@
 import React from 'react';
-
+import { Button } from 'reactstrap';
 
 export default function FilterButtons(props) {
 
 return(
   <div>
-      <button onClick={()=>props.handleSelect('Vegan')} key='1' class='filter-button' id='vegan-filter-button'> Vegan </button>
-      <button onClick={()=>props.handleSelect('Vegetarian')} key='2' class='filter-button' id='veg-filter-button'> Vegetarian </button>
-      <button onClick={()=>props.handleSelect('')} key="3" class='filter-button' id='reset-filter-button'> Reset Filters </button>
-      <button onClick={()=>props.renderFavorites(!props.favoritesView)} id='favorites-button'> Favorites </button>
-      <button id='add-recipe'>Add Recipe </button>
+      <Button onClick={()=>props.handleSelect('Vegan')} key='1' outline color="primary"> Vegan </Button>
+      <Button onClick={()=>props.handleSelect('Vegetarian')} key='2' outline color="primary"> Vegetarian </Button>
+      <Button onClick={()=>props.handleSelect('')} key="3" outline color="primary"> Reset Filters </Button>
+      <Button onClick={()=>props.renderFavorites(!props.favoritesView)} outline color="danger"> Favorites </Button>
+      <Button id='add-recipe'>Add Recipe </Button>
   </div>
   )
 };

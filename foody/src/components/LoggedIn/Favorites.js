@@ -3,7 +3,7 @@ import Recipe from '../Recipe.js';
 import FilterButtons from './FilterButtons.js';
 
 
-export default function Favorites(props){
+export default function Favorites(props) {
   const selectedRecipes = props.favorites.filter(recipe => {
    return recipe.category === props.selected
     }
@@ -14,7 +14,7 @@ export default function Favorites(props){
     <div id="recipeframe">
 
         <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
-        
+
         {
           props.selected
           ?

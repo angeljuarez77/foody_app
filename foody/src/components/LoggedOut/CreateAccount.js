@@ -2,7 +2,7 @@ import React from 'react';
 import UserForm from './UserForm.js';
 import LoginButton from './LoginButton';
 import './LoggedOut.css'
-
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 export default function CreateAccount(props) {
