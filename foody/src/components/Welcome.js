@@ -2,7 +2,6 @@ import React from 'react';
 import LoginButton from './LoggedOut/LoginButton.js'
 import SignUpButton from './LoggedOut/SignUpButton.js'
 
-
 export default function Welcome(props){
   return (
     <div>

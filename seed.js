@@ -1,5 +1,6 @@
 const { Recipe, User, Favorite } = require('./models');
 const { Op } = require('sequelize');
+const bcrypt = require('bcrypt-nodejs');
 
 async function createRecipe() {
   await Recipe.destroy({ where: {} });
@@ -46,17 +47,22 @@ async function createRecipe() {
 async function createUser() {
   await User.destroy({ where: {} });
   try {
-    const user = await User.bulkCreate([
+
+    // const firstUser = { name: 'Leonidas', password: bcrypt.hashSync('abcdefgangsta', 12) };
+    // const secondUser = { name: 'Chef Ramsey', password: bcrypt.hashSync('cookingislife', 12) };
+    // const thirdUser = { name: 'some guy', password: bcrypt.hashSync('imhungry', 12) };
+
+    await User.bulkCreate([
       {
         name: 'Leonidas',
         password: 'abcdefgangsta',
       },
       {
         name: 'Chef Ramsey',
-        password: 'cookingislife',
+        password: 'cookingislife'
       },
       {
-        name: 'Some guy',
+        name: 'some guy',
         password: 'imhungry',
       },
     ]);
@@ -77,6 +83,7 @@ async function addFavorite() {
     console.log(e);
   }
 }
+
 
 async function run() {
   try {

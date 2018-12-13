@@ -1,5 +1,6 @@
 import React from 'react';
 import Recipe from '../Recipe.js';
+import FilterButtons from './FilterButtons.js';
 
 
 export default function Favorites(props){
@@ -9,11 +10,16 @@ export default function Favorites(props){
   )
 
   return(
+<<<<<<< HEAD
     <div id="recipeframe">
+=======
+    <div>
+        <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
+>>>>>>> f5ab749a57649baecea457dbe7c174bc6b7df107
         {
           props.selected
           ?
-          props.recipes.filter(recipe => recipe.category === props.selected).map(recipe=>(
+          props.favorites.filter(recipe => recipe.category === props.selected).map(recipe=>(
             <Recipe
               key={recipe.id}
               url={recipe.url}
@@ -23,7 +29,7 @@ export default function Favorites(props){
             ))
 
             :
-            props.recipes.map(recipe=>(
+            props.favorites.map(recipe=>(
               <Recipe
                 key={recipe.id}
                 url={recipe.url}
