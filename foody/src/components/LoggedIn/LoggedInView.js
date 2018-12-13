@@ -1,8 +1,8 @@
 import React from 'react';
-import AllRecipes from './AllRecipes.js';
-import Recipe from '../Recipe.js';
-import Favorites from './Favorites.js';
-import RecipeForm from './RecipeForm.js';
+import AllRecipes from './AllRecipes';
+import Recipe from '../Recipe';
+import Favorites from './Favorites';
+import RecipeForm from './RecipeForm';
 
 
 export default function LoggedInView(props) {

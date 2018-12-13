@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function UserForm(props) {
+
   return (
     <div>
       <form class='login-signup-form' onSubmit={props.onSubmit} onChange={props.onChange}>
