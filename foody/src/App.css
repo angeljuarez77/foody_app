@@ -7,6 +7,38 @@
   flex: 1;
   margin-left: 20px;
 }
+/* Welcome Screen Log Style */
 #loggedinViewH1{
   text-align: center;
+}
+#WelcomeGreeting{
+  font-size: 60px;
+  width: 800px;
+  height: 600px;
+  text-align: center;
+  margin-left: 20%;
+  margin-top: 13%;
+}
+#chefhat{
+  width: 220px;
+  height: 200px;
+  background: url('./Images/chefhat2.png');
+  background-size:cover;
+  position: absolute;
+  top:23%;
+  left: 55%;
+  z-index: -1
+}
+.loginSignup{
+  margin-left: 75%;
+  margin-top: 50px;
+  width:250px;
+}
+.logbtns{
+  width: 90px;
+  height: 40px;
+  margin: 10px;
+  margin-left: 15px;
+  border-radius: 7px;
+  font-size: 20px;
 }

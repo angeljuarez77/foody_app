@@ -3,12 +3,15 @@ import LoginButton from './LoggedOut/LoginButton.js'
 import SignUpButton from './LoggedOut/SignUpButton.js'
 
 
-export default function Welcome(props){
+export default function Welcome(props) {
   return (
     <div>
-      <h1 id="WelcomeGreeting"> Welcome to Foody </h1>
-      <LoginButton  pageSwitch = {props.pageSwitch}/>
-      <SignUpButton pageSwitch = {props.pageSwitch}/>
+    <div className="loginSignup">
+      <LoginButton  pageSwitch = {props.pageSwitch} />
+      <SignUpButton pageSwitch = {props.pageSwitch} />
+    </div>
+      <div id="WelcomeGreeting"><h1> Welcome <br />to<br />Foody</h1></div>
+      <div id="chefhat"></div>
     </div>
   )
 }

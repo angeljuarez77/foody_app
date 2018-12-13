@@ -53,7 +53,7 @@ class App extends Component {
     this.onChange = this.onChange.bind(this);
     this.validateLog = this.validateLog.bind(this);
   }
-  
+
   async getRecipes() {
     const results = await axios.get(`${BASE_URL}/recipes`);
     const recipes = results.data;
