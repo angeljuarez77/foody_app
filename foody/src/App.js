@@ -80,7 +80,7 @@ class App extends Component {
       default:
         return <Welcome />
     }
-
+  }
 
 
   handleSelect(filter) {
