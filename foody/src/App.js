@@ -43,6 +43,7 @@ class App extends Component {
         category: '',
         rating: ''
       },
+      token: null,
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -53,7 +54,7 @@ class App extends Component {
     this.onChange = this.onChange.bind(this);
     this.validateLog = this.validateLog.bind(this);
   }
-  
+
   async getRecipes() {
     const results = await axios.get(`${BASE_URL}/recipes`);
     const recipes = results.data;
@@ -135,7 +136,7 @@ async submitRecipe(e) {
       selected: filter,
     });
   }
-  
+
   validateLog(e) {
     e.preventDefault();
     axios.post('http://localhost:3001/users/login', this.state.newUser).then(this.setState({
@@ -161,14 +162,26 @@ async submitRecipe(e) {
     this.saveUser(this.state.newUser);
   }
 
+  buildHeaders() {
+    const { token } = this.state;
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    };
+  }
+
   async saveUser(user) {
     try {
-      axios.post('http://localhost:3001/users/', user);
+      const resp = axios.post('http://localhost:3001/users/', user);
     // eslint-disable-next-line no-console
-    } catch (e) { console.error(e); } finally { 
+    } catch (e) {
+      console.error(e);
+    } finally {
       this.setState({
         view: 'loggedin',
         newUser: { name: '', password: '' },
+        token: resp.data.token,
       });
     }
   }
