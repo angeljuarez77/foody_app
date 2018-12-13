@@ -4,9 +4,9 @@ import LoggedInView from './components/LoggedIn/LoggedInView';
 import Login from './components/LoggedOut/Login';
 import CreateAccount from './components/LoggedOut/CreateAccount';
 import Welcome from './components/Welcome';
-import AllRecipes from './components/LoggedIn/AllRecipes';
-import Recipe from './components/Recipe';
-import  './App.css';
+// import AllRecipes from './components/LoggedIn/AllRecipes';
+// import Recipe from './components/Recipe';
+import './App.css';
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -41,7 +41,7 @@ class App extends Component {
         title: '',
         description: '',
         category: '',
-        rating: ''
+        rating: '',
       },
     };
     this.renderFavorites = this.renderFavorites.bind(this);
@@ -53,7 +53,7 @@ class App extends Component {
     this.onChange = this.onChange.bind(this);
     this.validateLog = this.validateLog.bind(this);
   }
-  
+
   async getRecipes() {
     const results = await axios.get(`${BASE_URL}/recipes`);
     const recipes = results.data;
