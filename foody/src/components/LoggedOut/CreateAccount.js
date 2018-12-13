@@ -7,8 +7,9 @@ export default function CreateAccount(props){
   return(
     <div>
       <h1> Create User Account </h1>
-      <UserForm />
-      <LoginButton  pageSwitch ={props.pageSwitch}/>
+      <UserForm onSubmit={props.onSubmit} onChange={props.onChange} />
+      <LoginButton  pageSwitch = {props.pageSwitch}/>
+
     </div>
   )
 }

@@ -32,10 +32,17 @@ class App extends Component {
       favoritesView: false,
       selected: '',
       filterResults: [],
-      view: 'loggedin',
+      view: '',
+      newUser: {
+
+      },
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.setView = this.setView.bind(this);
+    this.postNew = this.postNew.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.validateLog = this.validateLog.bind(this);
   }
   // 
   // async componentDidMount() {
@@ -59,14 +66,16 @@ class App extends Component {
     })
   }
 
-
   getView() {
     // const { view } = this.state;
     switch (this.state.view) {
       case 'login':
-        return <Login pageSwitch={this.setView}/>;
+        return <Login pageSwitch={this.setView} onSubmit={this.validateLog} onChange={this.onChange} />;
       case 'signup':
-        return <CreateAccount  pageSwitch={this.setView}/>;
+        return (
+          // put new user inside of state
+          <CreateAccount pageSwitch={this.setView} onSubmit={this.postNew} onChange={this.onChange} />
+        );
       case 'loggedin':
         return (
           <LoggedInView
@@ -80,7 +89,7 @@ class App extends Component {
           />
         );
       default:
-        return <Welcome />;
+        return <Welcome pageSwitch={this.setView} />;
     }
   }
 
@@ -89,6 +98,43 @@ class App extends Component {
     this.setState({
       selected: filter,
     });
+  }
+  
+  validateLog(e) {
+    e.preventDefault();
+    axios.post('http://localhost:3001/users/login', this.state.newUser).then(this.setState({
+      view: 'loggedin',
+      newUser: {
+
+      },
+    }));
+  }
+
+  onChange(e) {
+    const changed = e.target.id;
+    const info = e.target.value;
+    this.setState(prevState => ({
+      newUser: {
+        ...prevState.newUser, [changed]: info
+      }
+    }));
+  }
+
+  postNew(e) {
+    e.preventDefault();
+    this.saveUser(this.state.newUser);
+  }
+
+  async saveUser(user) {
+    try {
+      axios.post('http://localhost:3001/users/', user);
+    // eslint-disable-next-line no-console
+    } catch (e) { console.error(e); } finally { 
+      this.setState({
+        view: 'loggedin',
+        newUser: { name: '', password: '' },
+      });
+    }
   }
 
   renderFavorites(nextView) {
