@@ -34,7 +34,8 @@
     "dev": "nodemon server.js",
     "resetDb": "node resetDb.js",
     "seed": "node seed.js",
-    "debug": "nodemon --inspect-brk server.js"
+    "debug": "nodemon --inspect-brk server.js",
+    "populate": "node resetDb.js && node seed.js"
   },
   "repository": {
     "type": "git",
