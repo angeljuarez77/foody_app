@@ -11,7 +11,7 @@ export default function LoggedInView(props) {
 
     <div className="loggedinView" >
       <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
-        <RecipeForm />
+      
       {
           props.favoritesView
           ?

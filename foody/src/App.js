@@ -36,6 +36,13 @@ class App extends Component {
       newUser: {
 
       },
+      recipeForm: {
+        vidId: '',
+        title: '',
+        description: '',
+        category: '',
+        rating: ''
+      },
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -46,15 +53,10 @@ class App extends Component {
     this.onChange = this.onChange.bind(this);
     this.validateLog = this.validateLog.bind(this);
   }
-  // 
-  // async componentDidMount() {
-  //   await this.getRecipes();
-  // }
-
+  
   async getRecipes() {
     const results = await axios.get(`${BASE_URL}/recipes`);
     const recipes = results.data;
-    console.log(recipes);
     this.setState({ recipes });
   }
 
@@ -62,7 +64,7 @@ class App extends Component {
     await this.getRecipes()
   }
 
-  setView = (view) => {
+  setView(view) {
     this.setState({
       view: view
     })
