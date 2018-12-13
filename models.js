@@ -12,7 +12,7 @@ const sequelize = new Sequelize({
 
 const Recipe = sequelize.define('recipe', {
   url: Sequelize.STRING,
-  vidId:Sequelize.STRING,
+  videoid:Sequelize.STRING,
   title: Sequelize.STRING,
   description: Sequelize.STRING,
   category: Sequelize.STRING,

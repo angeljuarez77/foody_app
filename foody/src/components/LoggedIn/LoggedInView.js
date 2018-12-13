@@ -1,8 +1,8 @@
 import React from 'react';
-import AllRecipes from './AllRecipes.js';
-import Recipe from '../Recipe.js';
-import Favorites from './Favorites.js';
-import RecipeForm from './RecipeForm.js';
+import AllRecipes from './AllRecipes';
+import Recipe from '../Recipe';
+import Favorites from './Favorites';
+import RecipeForm from './RecipeForm';
 
 
 export default function LoggedInView(props) {
@@ -11,10 +11,7 @@ export default function LoggedInView(props) {
 
     <div className="loggedinView" >
       <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
-
-      <button className="categoryBtns"> Vegan </button>
-      <button className="categoryBtns"> Vegetarian </button>
-
+        <RecipeForm />
       {
           props.favoritesView
           ?
@@ -27,26 +24,12 @@ export default function LoggedInView(props) {
             favoritesView={props.favoritesView}
           />
           :
-          <AllRecipes recipes={props.recipes} selected={props.selected} favorites={props.favorites} renderFavorites={props.renderFavorites}
+          <AllRecipes recipes={props.recipes}
+          selected={props.selected} favorites={props.favorites} renderFavorites={props.renderFavorites}
           handleSelect={props.handleSelect}
           favoritesView={props.favoritesView}
           />
       }
-
-    <div>
-
-        <h1> Recipes </h1>
-
-        {
-            props.favoritesView
-            ?
-            <Favorites renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
-            :
-            <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
-        }
-
-        <RecipeForm />
-    </div>
     </div>
   )
 };
