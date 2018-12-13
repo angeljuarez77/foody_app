@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 3001;
 
 const { User, Recipe } = require('./models');
 
-const {userRouter } = require('./routes/users');
-const {recipeRouter } = require('./routes/recipes');
+const { userRouter } = require('./routes/users');
+const { recipeRouter } = require('./routes/recipes');
 
 const app = express();
 
