@@ -43,6 +43,7 @@ class App extends Component {
     await this.getRecipes()
   }
 
+
   async getRecipes() {
     const results = await axios.get(`${BASE_URL}/recipes`);
     const recipes = results.data;
@@ -68,7 +69,7 @@ class App extends Component {
         return <CreateAccount />
       case 'loggedin':
         return (
-          <LoggedInView
+          <LoggedInView className="recipeframe"
             handleSelect={this.handleSelect}
             renderFavorites={this.renderFavorites}
             favoritesView={this.state.favoritesView}
@@ -80,7 +81,7 @@ class App extends Component {
       default:
         return <Welcome />
     }
-
+  }
 
 
   handleSelect(filter) {
