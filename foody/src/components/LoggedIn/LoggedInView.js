@@ -11,10 +11,7 @@ export default function LoggedInView(props) {
 
     <div className="loggedinView" >
       <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
-
-      <button className="categoryBtns"> Vegan </button>
-      <button className="categoryBtns"> Vegetarian </button>
-
+      
       {
           props.favoritesView
           ?
@@ -27,12 +24,12 @@ export default function LoggedInView(props) {
             favoritesView={props.favoritesView}
           />
           :
-          <AllRecipes recipes={props.recipes} selected={props.selected} favorites={props.favorites} renderFavorites={props.renderFavorites}
+          <AllRecipes recipes={props.recipes}
+          selected={props.selected} favorites={props.favorites} renderFavorites={props.renderFavorites}
           handleSelect={props.handleSelect}
           favoritesView={props.favoritesView}
           />
       }
-
     <div>
 
         <h1> Recipes </h1>
@@ -45,8 +42,13 @@ export default function LoggedInView(props) {
             <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
         }
 
-        <RecipeForm />
+        <RecipeForm
+          recipeForm={props.recipeForm}
+          handleChange={props.handleChange}
+          submitRecipe={props.submitRecipe}
+        />
     </div>
+
     </div>
   )
 };

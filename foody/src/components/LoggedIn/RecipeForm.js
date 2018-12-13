@@ -3,12 +3,12 @@ import React from 'react';
 export default function RecipeForm(props) {
   return (
     <div>
-      <form onSubmit={props.handleSubmit} class='add-recipe-form'>
-        <label>Youtube Link
+      <form onSubmit={props.submitRecipe} class='add-recipe-form'>
+        <label>Youtube Link ID
         <input
           type="text"
-          name="url"
-          value={props.url}
+          name="vidId"
+          value={props.recipeForm.vidId}
           onChange={props.handleChange}
           placeholder="Video url"
           class='add-recipe-input'
@@ -18,7 +18,7 @@ export default function RecipeForm(props) {
         <input
           type="text"
           name="title"
-          value={props.title}
+          value={props.recipeForm.title}
           onChange={props.handleChange}
           placeholder="Title"
           class='add-recipe-input'
@@ -27,24 +27,24 @@ export default function RecipeForm(props) {
         <input
           type="text"
           name="description"
-          value={props.description}
+          value={props.recipeForm.description}
           onChange={props.handleChange}
           placeholder="Description"
           class='add-recipe-input'
         />
-        <select name="category" onChange={props.categoryResults} class='add-recipe-select'>
-          <option defaultValue value={null}>Category</option>
+        <select name="category" onChange={props.handleChange} className='add-recipe-select'>
+          <option defaultValue disabled selected value>Category</option>
           <option value="vegan">Vegan</option>
           <option value="vegetarian">Vegetarian</option>
         </select>
-        // <select name="category" onChange={props.categoryResults}>
-        //   <option defaultValue value={null}>Rating</option>
-        //   <option value={5}>5</option>
-        //   <option value={4}>4</option>
-        //   <option value={3}>3</option>
-        //   <option value={2}>2</option>
-        //   <option value={1}>1</option>
-        // </select>
+        <select name="rating" onChange={props.handleChange}>
+          <option defaultValue disabled selected value>Rating</option>
+          <option value='5'>5</option>
+          <option value='4'>4</option>
+          <option value='3'>3</option>
+          <option value='2'>2</option>
+          <option value='1'>1</option>
+        </select>
         <button class='submit-button' id='add-recipe-submit'>Post Recipe</button>
       </form>
     </div>

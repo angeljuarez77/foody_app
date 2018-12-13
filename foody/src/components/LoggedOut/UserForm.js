@@ -1,19 +1,20 @@
 import React from 'react';
 
 export default function UserForm(props) {
-  return(
+
+  return (
     <div>
-      <form className='login-signup-form'>
-        <label className='login-signup-label' id='username-form-label'>
-          Username
-          <input/>
+      <form class='login-signup-form' onSubmit={props.onSubmit} onChange={props.onChange}>
+        <label class='login-signup-label' id='username-form-label'>
+          Username: 
+          <input  id="name" placeholder="Name Please"/>
         </label>
-        <label className='login-signup-label' id='password-form-label'>
-          Password
-          <input/>
+        <label class='login-signup-label' id='password-form-label'>
+          Password: 
+          <input id="password" placeholder="Password"/>
         </label>
+        <input class='submit-button' id='login-signup-submit' type="submit" value="Submit"></input>
       </form>
-      <button className='submit-button' id='login-signup-submit'>Submit</button>
     </div>
   )
 }
