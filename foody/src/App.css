@@ -1,5 +1,21 @@
-.videoframe{
-  border:solid green;
-  width: 600px;
-  height: 400px;
+#recipeframe{
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+.recipeItems{
+  flex: 1;
+  margin-left: 20px;
+}
+.categoryBtns{
+  margin-left: 10px;
+  width: 85px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+
+#loggedinViewH1{
+  text-align: center;
 }

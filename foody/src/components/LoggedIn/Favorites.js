@@ -10,8 +10,12 @@ export default function Favorites(props){
   )
 
   return(
+<<<<<<< HEAD
+    <div id="recipeframe">
+=======
     <div>
         <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
+>>>>>>> f5ab749a57649baecea457dbe7c174bc6b7df107
         {
           props.selected
           ?
@@ -20,6 +24,7 @@ export default function Favorites(props){
               key={recipe.id}
               url={recipe.url}
               title={recipe.title}
+              vidId={recipe.videoid}
               />
             ))
 
@@ -29,6 +34,7 @@ export default function Favorites(props){
                 key={recipe.id}
                 url={recipe.url}
                 title={recipe.title}
+                videoId={recipe.vidId}
                 />
               ))
         }
