@@ -2,7 +2,7 @@ import React from 'react';
 import AllRecipes from './AllRecipes.js';
 import Recipe from '../Recipe.js';
 import Favorites from './Favorites.js';
-
+import RecipeForm from './RecipeForm.js';
 
 
 export default function LoggedInView(props) {
@@ -41,6 +41,7 @@ export default function LoggedInView(props) {
         }
 >>>>>>> f5ab749a57649baecea457dbe7c174bc6b7df107
 
+        <RecipeForm />
     </div>
   )
 };
