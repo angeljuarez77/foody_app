@@ -3,7 +3,7 @@ import React from 'react';
 export default function RecipeForm(props) {
   return (
     <div>
-      <form onSubmit={props.handleSubmit} class='add-recipe-form'>
+      <form onSubmit={props.submitRecipe} class='add-recipe-form'>
         <label>Youtube Link ID
         <input
           type="text"
@@ -33,12 +33,12 @@ export default function RecipeForm(props) {
           class='add-recipe-input'
         />
         <select name="category" onChange={props.handleChange} className='add-recipe-select'>
-          <option defaultValue value=''>Category</option>
+          <option defaultValue disabled selected value>Category</option>
           <option value="vegan">Vegan</option>
           <option value="vegetarian">Vegetarian</option>
         </select>
         <select name="rating" onChange={props.handleChange}>
-          <option defaultValue value=''>Rating</option>
+          <option defaultValue disabled selected value>Rating</option>
           <option value='5'>5</option>
           <option value='4'>4</option>
           <option value='3'>3</option>

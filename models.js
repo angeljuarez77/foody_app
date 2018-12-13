@@ -14,8 +14,8 @@ const Recipe = sequelize.define('recipe', {
   vidId: Sequelize.STRING,
   title: Sequelize.STRING,
   description: Sequelize.STRING,
-  category: Sequelize.STRING,
-  rating: Sequelize.INTEGER,
+  category: { type: Sequelize.STRING, allowNull: true},
+  rating: { type: Sequelize.STRING, allowNull: true},
 });
 
 const User = sequelize.define('user', {

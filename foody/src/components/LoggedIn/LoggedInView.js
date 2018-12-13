@@ -45,7 +45,11 @@ export default function LoggedInView(props) {
             <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
         }
 
-        <RecipeForm recipeForm={props.recipeForm} handleChange={props.handleChange}/>
+        <RecipeForm
+          recipeForm={props.recipeForm}
+          handleChange={props.handleChange}
+          submitRecipe={props.submitRecipe}
+        />
     </div>
     </div>
   )

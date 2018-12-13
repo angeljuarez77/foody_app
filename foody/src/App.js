@@ -44,6 +44,7 @@ class App extends Component {
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.submitRecipe = this.submitRecipe.bind(this);
   }
 
   async componentDidMount() {
@@ -81,6 +82,7 @@ class App extends Component {
             favorites={this.state.favorites}
             recipeForm={this.state.recipeForm}
             handleChange={this.handleChange}
+            submitRecipe={this.submitRecipe}
           />
         );
       default:
@@ -99,6 +101,24 @@ class App extends Component {
     }));
   }
 
+async submitRecipe(e) {
+  e.preventDefault();
+  try {
+    await axios.post(`${BASE_URL}/recipes`, this.state.recipeForm);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    this.setState({
+      recipeForm: {
+        vidId: '',
+        title: '',
+        description: '',
+        category: '',
+        rating: ''
+      }
+    });
+  }
+}
 
   handleSelect(filter) {
     this.setState({
