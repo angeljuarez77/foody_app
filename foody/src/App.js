@@ -90,11 +90,13 @@ class App extends Component {
 
   handleChange(e) {
     const { name, value } = e.target
-    this.setState({
+    this.setState(prevState => ({
+      prevState,
       recipeForm: {
+        ...prevState.recipeForm,
         [name]: value
       }
-    });
+    }));
   }
 
 
