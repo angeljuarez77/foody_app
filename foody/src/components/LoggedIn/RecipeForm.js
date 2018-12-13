@@ -33,12 +33,12 @@ export default function RecipeForm(props) {
           class='add-recipe-input'
         />
         <select name="category" onChange={props.handleChange} className='add-recipe-select'>
-          <option defaultValue value={null}>Category</option>
+          <option defaultValue value=''>Category</option>
           <option value="vegan">Vegan</option>
           <option value="vegetarian">Vegetarian</option>
         </select>
         <select name="rating" onChange={props.handleChange}>
-          <option defaultValue value={null}>Rating</option>
+          <option defaultValue value=''>Rating</option>
           <option value='5'>5</option>
           <option value='4'>4</option>
           <option value='3'>3</option>
