@@ -32,7 +32,7 @@ class App extends Component {
       favoritesView: false,
       selected: '',
       filterResults: [],
-      view: '',
+      view: 'loggedin',
       newUser: {
 
       },
@@ -135,7 +135,7 @@ async submitRecipe(e) {
       selected: filter,
     });
   }
-  
+
   validateLog(e) {
     e.preventDefault();
     axios.post('http://localhost:3001/users/login', this.state.newUser).then(this.setState({
@@ -165,7 +165,7 @@ async submitRecipe(e) {
     try {
       axios.post('http://localhost:3001/users/', user);
     // eslint-disable-next-line no-console
-    } catch (e) { console.error(e); } finally { 
+    } catch (e) { console.error(e); } finally {
       this.setState({
         view: 'loggedin',
         newUser: { name: '', password: '' },

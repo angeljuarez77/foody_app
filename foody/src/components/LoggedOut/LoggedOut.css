@@ -10,6 +10,7 @@ font-size: 1rem;
 
 .logged-out-view {
   text-align: center;
+  margin-top: 50px;
 }
 
 /* Sign Up Page */
@@ -17,13 +18,23 @@ font-size: 1rem;
 .loggedoutview-button {
   margin: 5px;
 }
+.other-page {
+  padding: 40px;
+
+}
 
 /* Form */
 
 form {
-margin-top: 30px;
+  margin-top: 30px;
 }
 
-#submit-button {
+#login-signup-form {
+  margin: 0 auto;
+  max-width: 600px;
+  background: rgba(255, 255, 255, .6);
+}
+
+#login-signup-submit {
 margin-bottom: 30px;
 }

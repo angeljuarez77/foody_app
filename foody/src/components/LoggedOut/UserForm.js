@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import './LoggedOut.css';
 
 export default function UserForm(props) {
 
   return (
-  <div id='signup-login-form' >
+  <div id='login-signup-form' >
     <Form>
       <FormGroup
         class='login-signup-form'

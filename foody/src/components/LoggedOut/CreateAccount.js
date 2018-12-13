@@ -10,7 +10,9 @@ export default function CreateAccount(props) {
     <div class='logged-out-view' id='sign-up'>
       <h2> Create User Account </h2>
       <UserForm onSubmit={props.onSubmit} onChange={props.onChange} />
-      <p> Already have an account? </p> <LoginButton  pageSwitch = {props.pageSwitch}/>
+      <div className="other-page">
+        <p> Already have an account? </p> <LoginButton  pageSwitch = {props.pageSwitch}/>
+      </div>
     </div>
   )
 }

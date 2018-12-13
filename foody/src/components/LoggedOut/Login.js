@@ -8,7 +8,9 @@ export default function Login(props) {
     <div className="logged-out-view">
     <h2 id='login-title'> Login </h2>
       <UserForm onSubmit={props.onSubmit} onChange={props.onChange} />
-      <p> Don't have an account? </p> <SignUpButton pageSwitch = {props.pageSwitch}/>
+      <div className="other-page">
+        <p> Don't have an account? </p> <SignUpButton pageSwitch = {props.pageSwitch}/>
+      </div>
     </div>
   );
 }
