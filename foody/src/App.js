@@ -32,10 +32,11 @@ class App extends Component {
       favoritesView: false,
       selected: '',
       filterResults: [],
-      view: 'loggedin',
+      view: '',
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.setView = this.setView.bind(this);
   }
 
   async componentDidMount() {
@@ -74,7 +75,7 @@ class App extends Component {
           />
         );
       default:
-        return <Welcome />;
+        return <Welcome pageSwitch={this.setView} />;
     }
   }
 
