@@ -1,3 +1,7 @@
+.loggedinView{
+  margin: 0 auto;
+  max-width: 600px;
+}
 #recipe-form{
   margin: 0 auto;
   max-width: 600px;

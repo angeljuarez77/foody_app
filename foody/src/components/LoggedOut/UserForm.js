@@ -6,11 +6,12 @@ export default function UserForm(props) {
 
   return (
   <div id='login-signup-form' >
-    <Form>
-      <FormGroup
-        class='login-signup-form'
-        onSubmit={props.onSubmit}
-        onChange={props.onChange}>
+    <Form
+      class='login-signup-form'
+      onSubmit={props.onSubmit}
+      onChange={props.onChange}
+    >
+      <FormGroup>
       <Label
         for="exampleUserName"
         id='username-form-label'>

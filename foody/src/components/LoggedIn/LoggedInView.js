@@ -3,7 +3,7 @@ import AllRecipes from './AllRecipes';
 import Recipe from '../Recipe';
 import Favorites from './Favorites';
 import RecipeForm from './RecipeForm';
-
+import './LoggedIn.css';
 
 export default function LoggedInView(props) {
   console.log(props.recipes)
@@ -11,7 +11,7 @@ export default function LoggedInView(props) {
 
     <div className="loggedinView" >
       <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
-      
+
       {
           props.favoritesView
           ?
