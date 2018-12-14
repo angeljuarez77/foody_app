@@ -18,7 +18,8 @@ export default function AllRecipes(props) {
                 key={recipe.id}
                 url={recipe.url}
                 title={recipe.title}
-                vidId={recipe.videoid}
+                vidId={recipe.vidId}
+                onDelete={() => props.deleteRecipe(recipe.id)}
                 />
               ))
 
@@ -28,7 +29,8 @@ export default function AllRecipes(props) {
                   key={recipe.id}
                   url={recipe.url}
                   title={recipe.title}
-                  vidId={recipe.videoid}
+                  vidId={recipe.vidId}
+                 onDelete={() => props.deleteRecipe(recipe.id)}
                   />
                 ))
           }

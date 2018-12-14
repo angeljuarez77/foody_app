@@ -60,6 +60,7 @@ export default function RecipeForm(props) {
           <option value='3'>3</option>
           <option value='2'>2</option>
           <option value='1'>1</option>
+
         </Input>
       </FormGroup>
       <Button class='submit-button' id='add-recipe-submit' outline color="info">Add Recipe</Button>

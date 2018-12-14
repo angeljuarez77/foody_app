@@ -55,6 +55,8 @@ class App extends Component {
     this.postNew = this.postNew.bind(this);
     this.onChange = this.onChange.bind(this);
     this.validateLog = this.validateLog.bind(this);
+    this.getRecipes = this.getRecipes.bind(this);
+    this.handleDeleteRecipe = this.handleDeleteRecipe.bind(this);
   }
 
   async getRecipes() {
@@ -63,7 +65,7 @@ class App extends Component {
     this.setState({ recipes });
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
     await this.getRecipes()
   }
 
@@ -96,6 +98,7 @@ class App extends Component {
             recipeForm={this.state.recipeForm}
             handleChange={this.handleChange}
             submitRecipe={this.submitRecipe}
+            deleteRecipe={this.handleDeleteRecipe}
           />
         );
       default:
@@ -130,7 +133,24 @@ async submitRecipe(e) {
         rating: ''
       }
     });
+
+    await this.getRecipes();
   }
+}
+
+async handleDeleteRecipe(id) {
+  debugger;
+    await axios.delete(`${BASE_URL}/recipes/${id}`);
+
+     console.log(`i deleted video with id ${id}`);
+    await this.getRecipes();
+
+    this.setState( prevState => {
+
+      return {
+        recipes: prevState.recipes.filter( recipe => recipe.id !== id),
+      }
+    });
 }
 
   handleSelect(filter) {
@@ -196,6 +216,43 @@ async submitRecipe(e) {
 
     this.setState({ token: resp.data.token });
     this.getCurrentUser();
+  }
+
+  async saveUser(user) {
+    try {
+      axios.post('http://localhost:3001/users/', user);
+    // eslint-disable-next-line no-console
+    } catch (e) { console.error(e); } finally {
+      this.setState({
+        view: 'loggedin',
+        newUser: { name: '', password: '' },
+      });
+    }
+  }
+
+  validateLog(e) {
+    e.preventDefault();
+    axios.post('http://localhost:3001/users/login', this.state.newUser).then(this.setState({
+      view: 'loggedin',
+      newUser: {
+
+      },
+    }));
+  }
+
+  onChange(e) {
+    const changed = e.target.id;
+    const info = e.target.value;
+    this.setState(prevState => ({
+      newUser: {
+        ...prevState.newUser, [changed]: info
+      }
+    }));
+  }
+
+  postNew(e) {
+    e.preventDefault();
+    this.saveUser(this.state.newUser);
   }
 
   async saveUser(user) {

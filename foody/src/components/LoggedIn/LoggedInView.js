@@ -6,9 +6,10 @@ import RecipeForm from './RecipeForm';
 import './LoggedIn.css';
 
 export default function LoggedInView(props) {
-  console.log(props.recipes)
   return(
 
+
+       
     <div className="loggedin-view" >
       <h1 id="loggedin-title"> Foody Recipes </h1>
 
@@ -22,14 +23,17 @@ export default function LoggedInView(props) {
             renderFavorites={props.renderFavorites}
             handleSelect={props.handleSelect}
             favoritesView={props.favoritesView}
+            deleteRecipe={props.deleteRecipe}
           />
           :
           <AllRecipes recipes={props.recipes}
           selected={props.selected} favorites={props.favorites} renderFavorites={props.renderFavorites}
           handleSelect={props.handleSelect}
           favoritesView={props.favoritesView}
+          deleteRecipe={props.deleteRecipe}
           />
       }
+    
         <RecipeForm
           recipeForm={props.recipeForm}
           handleChange={props.handleChange}

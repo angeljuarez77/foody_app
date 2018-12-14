@@ -7,7 +7,8 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 export default function CreateAccount(props) {
   return (
-    <div class='logged-out-view' id='sign-up'>
+    <div className='logged-out-view' id='sign-up'>
+
       <h2> Create User Account </h2>
       <UserForm onSubmit={props.onSubmit} onChange={props.onChange} />
       <div className="other-page">
