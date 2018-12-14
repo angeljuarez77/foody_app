@@ -161,9 +161,10 @@ async submitRecipe(e) {
     axios.post('http://localhost:3001/users/login', { name, password }).then(resp => this.setState({
       token: resp.data.token,
       loggedIn: true,
+      view: 'loggedin',
     }));
   }
-  
+
   buildHeaders() {
     const { token } = this.state;
     return {
@@ -191,10 +192,10 @@ async submitRecipe(e) {
     const { username, password } = this.state.formData;
     const resp = await axios.post(
       `${BASE_URL}/login`,
-      {username, password}
+      { username, password },
     );
 
-    this.setState({token: resp.data.token})
+    this.setState({ token: resp.data.token });
     this.getCurrentUser();
   }
 
