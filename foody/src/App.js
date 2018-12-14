@@ -181,7 +181,6 @@ async submitRecipe(e) {
       this.setState({
         view: 'loggedin',
         newUser: { name: '', password: '' },
-        token: resp.data.token,
       });
     }
   }
