@@ -8,44 +8,39 @@ h1 {
 font-size: 1rem;
 }
 
-
 .logged-out-view {
-  margin: auto 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding-top: 80px;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto;
   text-align: center;
-
+  margin-top: 5%;
+  position: relative;
 }
-
-#login {
-
-}
-
-
 
 /* Sign Up Page */
 
+.loggedoutview-button {
+  margin: 5px;
+}
+.other-page {
+  padding: 40px;
 
-
+}
 
 /* Form */
 
-h2 {
-
-}
-
 form {
-margin-top: 30px;
+  margin-top: 30px;
 }
 
-label {
-
+#login-signup-form {
+  margin: 0 auto;
+  max-width: 600px;
+  background: rgba(255, 255, 255, .6);
 }
 
-input {
-
-}
-p {
-  
-}
-#submit-button {
+#login-signup-submit {
 margin-bottom: 30px;
 }
