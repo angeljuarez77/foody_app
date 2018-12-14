@@ -4,41 +4,42 @@ import './LoggedIn.css'
 export default function RecipeForm(props) {
   return (
     <div id="recipe-form">
-    <h5> Add Recipe </h5>
+
       <Form
         onSubmit={props.submitRecipe}
-        class='add-recipe-form'>
+        id="add-recipe-form">
+          <h5> Add Recipe </h5>
           <FormGroup>
 
-        <Label>Youtube Link ID</Label>
+        <Label className="add-recipe-label">Youtube Link ID</Label>
         <Input
           type="text"
           name="vidId"
           value={props.recipeForm.vidId}
           onChange={props.handleChange}
           placeholder="/qorkD6nPYQM"
-          class='add-recipe-input'
+          className='add-recipe-input'
         />
 
-        <Label> Title </Label>
+        <Label className="add-recipe-label"> Title </Label>
         <Input
           type="text"
           name="title"
           value={props.recipeForm.title}
           onChange={props.handleChange}
           placeholder="Title"
-          class='add-recipe-input'
+          className='add-recipe-input'
         />
-        <Label> Description </Label>
+        <Label className="add-recipe-label"> Description </Label>
         <Input
           type="text"
           name="description"
           value={props.recipeForm.description}
           onChange={props.handleChange}
           placeholder="Description"
-          class='add-recipe-input'
+          className='add-recipe-input'
         />
-        <Label> Category </Label>
+        <Label className="add-recipe-label"> Category </Label>
         <Input
           type="select"
           name="category"
@@ -48,7 +49,7 @@ export default function RecipeForm(props) {
           <option value="vegan">Vegan</option>
           <option value="vegetarian">Vegetarian</option>
         </Input>
-        <Label> Rating </Label>
+        <Label className="add-recipe-label"> Rating </Label>
         <Input
         type="select"
         name="rating"

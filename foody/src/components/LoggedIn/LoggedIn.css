@@ -9,6 +9,15 @@
   margin-right: 10px;
 }
 
+#add-recipe-label {
+  padding: 5px;
+  margin-top: 5px;
+}
+
+#add-recipe-form {
+  padding: 30px;
+}
+
 #recipe-form {
   margin: 0 auto;
   max-width: 600px;
