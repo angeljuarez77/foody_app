@@ -5,7 +5,6 @@ body {
   background-repeat: repeat;
 }
 
-
 #recipeframe{
   display: flex;
   flex-wrap: wrap;
@@ -17,20 +16,24 @@ body {
 }
 /* Welcome Screen Log Style */
 #welcome-container{
-  background-color: rgba(255, 255, 255, 0.89);
-  padding-top: 80px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 80px;
   width: auto;
-  height: 300px;
+  height: 400px;
   margin-top: 10%;
   text-align: center;
-  font-size: 150px;
   position: relative;
+  margin-bottom: 45px;
 }
 
+#foody-text {
+  font-size: 100px;
+  margin-bottom: 45px;
+}
 
-
-#WelcomeGreeting{
-  font-family: 'Righteous', cursive;
+#welcome-text {
+  color: #F3754D;
+  font-size: 40px;
 }
 /* #chefhat{
   width: 220px;
@@ -42,8 +45,12 @@ body {
   left: 55%;
   z-index: -1
 } */
-.loginSignup{
+/* .loginSignup{
   margin-left: 75%;
   margin-top: 50px;
   width:250px;
+} */
+
+.loginSignup {
+  margin: 0 auto;
 }
