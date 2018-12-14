@@ -4,12 +4,13 @@ import { Button } from 'reactstrap';
 export default function FilterButtons(props) {
 
 return(
-  <div>
+  <div id="button-container">
+    <div id="filter-buttons">
       <Button onClick={()=>props.handleSelect('Vegan')} key='1' outline color="primary"> Vegan </Button>
       <Button onClick={()=>props.handleSelect('Vegetarian')} key='2' outline color="primary"> Vegetarian </Button>
-      <Button onClick={()=>props.handleSelect('')} key="3" outline color="secondary"> Reset Filters </Button>
-      <Button onClick={()=>props.renderFavorites(!props.favoritesView)} outline color="danger"> Favorites </Button>
-      <Button outline color="success">Add Recipe </Button>
+      <Button onClick={()=>props.handleSelect('')} key="3" outline color="secondary"> All </Button>
+    </div>
+      <Button onClick={()=>props.renderFavorites(!props.favoritesView)} outline color="danger" id="fav-button"> Favorites </Button>
   </div>
   )
 };

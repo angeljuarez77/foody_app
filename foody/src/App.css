@@ -1,3 +1,5 @@
+/*background borrowed from: https://dribbble.com/shots/3351201-Food-Bev-Pattern  */
+
 body {
   background: url(./Images/foodandbev.png);
   background-repeat: repeat;
@@ -25,12 +27,7 @@ body {
   position: relative;
 }
 
-#loggedinViewH1{
-  text-align: center;
-  margin: 20px;
-  position: absolute;
 
-}
 
 #WelcomeGreeting{
   font-family: 'Righteous', cursive;

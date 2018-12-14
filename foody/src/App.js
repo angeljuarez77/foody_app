@@ -32,7 +32,7 @@ class App extends Component {
       favoritesView: false,
       selected: '',
       filterResults: [],
-      view: '',
+      view: 'loggedin',
       newUser: {
 
       },
