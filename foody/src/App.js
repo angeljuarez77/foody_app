@@ -135,7 +135,7 @@ async submitRecipe(e) {
       selected: filter,
     });
   }
-  
+
   validateLog(e) {
     e.preventDefault();
     axios.post('http://localhost:3001/users/login', this.state.newUser).then(this.setState({
@@ -182,7 +182,7 @@ async submitRecipe(e) {
   render() {
     return (
       <div className="App">
-      {this.getView()}
+        {this.getView()}
       </div>
     );
   }
