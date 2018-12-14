@@ -34,7 +34,8 @@ class App extends Component {
       filterResults: [],
       view: '',
       newUser: {
-
+        name: '',
+        password: '',
       },
       recipeForm: {
         vidId: '',
@@ -43,6 +44,8 @@ class App extends Component {
         category: '',
         rating: '',
       },
+      loggedIn: false,
+      token: null,
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -135,17 +138,8 @@ async submitRecipe(e) {
       selected: filter,
     });
   }
+
   
-  validateLog(e) {
-    e.preventDefault();
-    axios.post('http://localhost:3001/users/login', this.state.newUser).then(this.setState({
-      view: 'loggedin',
-      newUser: {
-
-      },
-    }));
-  }
-
   onChange(e) {
     const changed = e.target.id;
     const info = e.target.value;
@@ -155,10 +149,54 @@ async submitRecipe(e) {
       }
     }));
   }
-
+  
   postNew(e) {
     e.preventDefault();
     this.saveUser(this.state.newUser);
+  }
+
+  validateLog(e) {
+    e.preventDefault();
+    const { name, password } = this.state.newUser
+    axios.post('http://localhost:3001/users/login', { name, password }).then(resp => this.setState({
+      token: resp.data.token,
+      loggedIn: true,
+      view: 'loggedin',
+    }));
+  }
+
+  buildHeaders() {
+    const { token } = this.state;
+    return {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    };
+  }
+
+  async getCurrentUser() {
+    try {
+      const headers = this.buildHeaders();
+      const resp = await axios.get('http://localhost:3001/users/currentuser', { ...headers });
+      this.setState({
+        loggedIn: true,
+        currentUser: resp.data.user,
+      });
+    } catch(e) { 
+      console.error(e) 
+    }
+  }
+
+  async login(ev) {
+    ev.preventDefault();
+    const { username, password } = this.state.formData;
+    const resp = await axios.post(
+      `${BASE_URL}/login`,
+      { username, password },
+    );
+
+    this.setState({ token: resp.data.token });
+    this.getCurrentUser();
   }
 
   async saveUser(user) {
@@ -182,7 +220,7 @@ async submitRecipe(e) {
   render() {
     return (
       <div className="App">
-      {this.getView()}
+        {this.getView()}
       </div>
     );
   }
