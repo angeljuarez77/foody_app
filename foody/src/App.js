@@ -32,7 +32,7 @@ class App extends Component {
       favoritesView: false,
       selected: '',
       filterResults: [],
-      view: '',
+      view: 'loggedin',
       newUser: {
 
       },
@@ -52,6 +52,8 @@ class App extends Component {
     this.postNew = this.postNew.bind(this);
     this.onChange = this.onChange.bind(this);
     this.validateLog = this.validateLog.bind(this);
+    this.getRecipes = this.getRecipes.bind(this);
+    this.handleDeleteRecipe = this.handleDeleteRecipe.bind(this);
   }
 
   async getRecipes() {
@@ -60,7 +62,7 @@ class App extends Component {
     this.setState({ recipes });
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
     await this.getRecipes()
   }
 
@@ -93,6 +95,7 @@ class App extends Component {
             recipeForm={this.state.recipeForm}
             handleChange={this.handleChange}
             submitRecipe={this.submitRecipe}
+            deleteRecipe={this.handleDeleteRecipe}
           />
         );
       default:
@@ -127,8 +130,25 @@ async submitRecipe(e) {
         rating: ''
       }
     });
+    await this.getRecipes();
   }
 }
+
+async handleDeleteRecipe(id) {
+  debugger;
+    await axios.delete(`${BASE_URL}/recipes/${id}`);
+
+     console.log(`i deleted video with id ${id}`);
+    await this.getRecipes();
+
+    this.setState( prevState => {
+
+      return {
+        recipes: prevState.recipes.filter( recipe => recipe.id !== id),
+      }
+    });
+}
+
 
   handleSelect(filter) {
     this.setState({

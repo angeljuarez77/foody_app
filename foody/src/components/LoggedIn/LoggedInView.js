@@ -6,13 +6,12 @@ import RecipeForm from './RecipeForm';
 
 
 export default function LoggedInView(props) {
-  console.log(props.recipes)
   return(
 
     <div className="loggedinView" >
       <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
-      
-      {
+
+      {/* {
           props.favoritesView
           ?
           <Favorites
@@ -30,16 +29,16 @@ export default function LoggedInView(props) {
           favoritesView={props.favoritesView}
           />
       }
-    <div>
+    <div> */}
 
         <h1> Recipes </h1>
 
-        {
+      {
             props.favoritesView
             ?
-            <Favorites renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
+            <Favorites renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView} deleteRecipe={props.deleteRecipe} />
             :
-            <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView}/>
+            <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView} deleteRecipe={props.deleteRecipe}/>
         }
 
         <RecipeForm
@@ -47,8 +46,6 @@ export default function LoggedInView(props) {
           handleChange={props.handleChange}
           submitRecipe={props.submitRecipe}
         />
-    </div>
-
     </div>
   )
 };

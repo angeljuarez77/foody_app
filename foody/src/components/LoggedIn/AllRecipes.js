@@ -10,7 +10,7 @@ export default function AllRecipes(props) {
 
     <div>
       <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
-          {
+      {
             props.selected
             ?
             props.recipes.filter(recipe => recipe.category === props.selected).map(recipe =>(
@@ -18,7 +18,8 @@ export default function AllRecipes(props) {
                 key={recipe.id}
                 url={recipe.url}
                 title={recipe.title}
-                vidId={recipe.videoid}
+                vidId={recipe.vidId}
+                onDelete={() => props.deleteRecipe(recipe.id)}
                 />
               ))
 
@@ -28,7 +29,8 @@ export default function AllRecipes(props) {
                   key={recipe.id}
                   url={recipe.url}
                   title={recipe.title}
-                  vidId={recipe.videoid}
+                  vidId={recipe.vidId}
+                 onDelete={() => props.deleteRecipe(recipe.id)}
                   />
                 ))
           }
