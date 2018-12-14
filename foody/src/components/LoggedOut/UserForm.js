@@ -1,20 +1,45 @@
 import React from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import './LoggedOut.css';
 
 export default function UserForm(props) {
 
   return (
-    <div>
-      <form class='login-signup-form' onSubmit={props.onSubmit} onChange={props.onChange}>
-        <label class='login-signup-label' id='username-form-label'>
-          Username: 
-          <input  id="name" placeholder="Name Please"/>
-        </label>
-        <label class='login-signup-label' id='password-form-label'>
-          Password: 
-          <input id="password" placeholder="Password"/>
-        </label>
-        <input class='submit-button' id='login-signup-submit' type="submit" value="Submit"></input>
-      </form>
-    </div>
+  <div id='login-signup-form' >
+    <Form
+      class='login-signup-form'
+      onSubmit={props.onSubmit}
+      onChange={props.onChange}
+    >
+      <FormGroup>
+      <Label
+        for="exampleUserName"
+        id='username-form-label'>
+          Username:
+      </Label>
+      <Input
+        type='text'
+        id="name"
+        placeholder="johnnyappleseed"
+        />
+      <Label
+        id='password-form-label'>
+          Password:
+      </Label>
+      <Input
+        id="password"
+          type="password"
+          name="password"
+          placeholder="adfiwe2n!ke"
+        />
+      </FormGroup>
+      <Button
+        id='login-signup-submit'
+        type="submit"
+        value="Submit"
+        color="success"
+        > Submit </Button>
+    </Form>
+  </div>
   )
 }

@@ -4,9 +4,9 @@ import LoggedInView from './components/LoggedIn/LoggedInView';
 import Login from './components/LoggedOut/Login';
 import CreateAccount from './components/LoggedOut/CreateAccount';
 import Welcome from './components/Welcome';
-import AllRecipes from './components/LoggedIn/AllRecipes';
-import Recipe from './components/Recipe';
-import  './App.css';
+// import AllRecipes from './components/LoggedIn/AllRecipes';
+// import Recipe from './components/Recipe';
+import './App.css';
 
 const BASE_URL = 'http://localhost:3001';
 
@@ -32,17 +32,20 @@ class App extends Component {
       favoritesView: false,
       selected: '',
       filterResults: [],
-      view: 'loggedin',
+      view: 'welcome',
       newUser: {
-
+        name: '',
+        password: '',
       },
       recipeForm: {
         vidId: '',
         title: '',
         description: '',
         category: '',
-        rating: ''
+        rating: '',
       },
+      loggedIn: false,
+      token: null,
     };
     this.renderFavorites = this.renderFavorites.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -130,6 +133,7 @@ async submitRecipe(e) {
         rating: ''
       }
     });
+
     await this.getRecipes();
   }
 }
@@ -149,11 +153,81 @@ async handleDeleteRecipe(id) {
     });
 }
 
-
   handleSelect(filter) {
     this.setState({
       selected: filter,
     });
+  }
+  
+  onChange(e) {
+    const changed = e.target.id;
+    const info = e.target.value;
+    this.setState(prevState => ({
+      newUser: {
+        ...prevState.newUser, [changed]: info
+      }
+    }));
+  }
+  
+  postNew(e) {
+    e.preventDefault();
+    this.saveUser(this.state.newUser);
+  }
+
+  validateLog(e) {
+    e.preventDefault();
+    const { name, password } = this.state.newUser
+    axios.post('http://localhost:3001/users/login', { name, password }).then(resp => this.setState({
+      token: resp.data.token,
+      loggedIn: true,
+      view: 'loggedin',
+    }));
+  }
+
+  buildHeaders() {
+    const { token } = this.state;
+    return {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    };
+  }
+
+  async getCurrentUser() {
+    try {
+      const headers = this.buildHeaders();
+      const resp = await axios.get('http://localhost:3001/users/currentuser', { ...headers });
+      this.setState({
+        loggedIn: true,
+        currentUser: resp.data.user,
+      });
+    } catch(e) { 
+      console.error(e) 
+    }
+  }
+
+  async login(ev) {
+    ev.preventDefault();
+    const { username, password } = this.state.formData;
+    const resp = await axios.post(
+      `${BASE_URL}/login`,
+      { username, password },
+    );
+
+    this.setState({ token: resp.data.token });
+    this.getCurrentUser();
+  }
+
+  async saveUser(user) {
+    try {
+      axios.post('http://localhost:3001/users/', user);
+    // eslint-disable-next-line no-console
+    } catch (e) { console.error(e); } finally {
+      this.setState({
+        view: 'loggedin',
+        newUser: { name: '', password: '' },
+      });
+    }
   }
 
   validateLog(e) {
@@ -202,7 +276,7 @@ async handleDeleteRecipe(id) {
   render() {
     return (
       <div className="App">
-      {this.getView()}
+        {this.getView()}
       </div>
     );
   }

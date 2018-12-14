@@ -10,7 +10,7 @@ export default function AllRecipes(props) {
 
     <div>
       <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
-      {
+          {
             props.selected
             ?
             props.recipes.filter(recipe => recipe.category === props.selected).map(recipe =>(

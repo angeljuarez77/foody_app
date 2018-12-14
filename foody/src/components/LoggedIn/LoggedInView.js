@@ -3,15 +3,17 @@ import AllRecipes from './AllRecipes';
 import Recipe from '../Recipe';
 import Favorites from './Favorites';
 import RecipeForm from './RecipeForm';
-
+import './LoggedIn.css';
 
 export default function LoggedInView(props) {
   return(
 
-    <div className="loggedinView" >
-      <h1 id="loggedinViewH1"> Enjoy Your Favorite Recipes </h1>
 
-      {/* {
+       
+    <div className="loggedin-view" >
+      <h1 id="loggedin-title"> Foody Recipes </h1>
+
+      {
           props.favoritesView
           ?
           <Favorites
@@ -21,26 +23,17 @@ export default function LoggedInView(props) {
             renderFavorites={props.renderFavorites}
             handleSelect={props.handleSelect}
             favoritesView={props.favoritesView}
+            deleteRecipe={props.deleteRecipe}
           />
           :
           <AllRecipes recipes={props.recipes}
           selected={props.selected} favorites={props.favorites} renderFavorites={props.renderFavorites}
           handleSelect={props.handleSelect}
           favoritesView={props.favoritesView}
+          deleteRecipe={props.deleteRecipe}
           />
       }
-    <div> */}
-
-        <h1> Recipes </h1>
-
-      {
-            props.favoritesView
-            ?
-            <Favorites renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView} deleteRecipe={props.deleteRecipe} />
-            :
-            <AllRecipes renderFavorites={props.renderFavorites} handleSelect={props.handleSelect} recipes={props.recipes} selected={props.selected} favorites={props.favorites} favoritesView={props.favoritesView} deleteRecipe={props.deleteRecipe}/>
-        }
-
+    
         <RecipeForm
           recipeForm={props.recipeForm}
           handleChange={props.handleChange}

@@ -1,3 +1,10 @@
+/*background borrowed from: https://dribbble.com/shots/3351201-Food-Bev-Pattern  */
+
+body {
+  background: url(./Images/foodandbev.png);
+  background-repeat: repeat;
+}
+
 #recipeframe{
   display: flex;
   flex-wrap: wrap;
@@ -8,18 +15,27 @@
   margin-left: 20px;
 }
 /* Welcome Screen Log Style */
-#loggedinViewH1{
+#welcome-container{
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 80px;
+  width: auto;
+  height: 400px;
+  margin-top: 10%;
   text-align: center;
+  position: relative;
+  margin-bottom: 45px;
 }
-#WelcomeGreeting{
-  font-size: 60px;
-  width: 800px;
-  height: 600px;
-  text-align: center;
-  margin-left: 20%;
-  margin-top: 13%;
+
+#foody-text {
+  font-size: 100px;
+  margin-bottom: 45px;
 }
-#chefhat{
+
+#welcome-text {
+  color: #F3754D;
+  font-size: 40px;
+}
+/* #chefhat{
   width: 220px;
   height: 200px;
   background: url('./Images/chefhat2.png');
@@ -28,17 +44,13 @@
   top:23%;
   left: 55%;
   z-index: -1
-}
-.loginSignup{
+} */
+/* .loginSignup{
   margin-left: 75%;
   margin-top: 50px;
   width:250px;
-}
-.logbtns{
-  width: 90px;
-  height: 40px;
-  margin: 10px;
-  margin-left: 15px;
-  border-radius: 7px;
-  font-size: 20px;
+} */
+
+.loginSignup {
+  margin: 0 auto;
 }
