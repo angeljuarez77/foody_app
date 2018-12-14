@@ -11,7 +11,7 @@ export default function Favorites(props) {
 
   return(
 
-    <div id="recipeframe">
+    <div className="recipe-list" id="recipeframe">
     <div>
         <FilterButtons handleSelect={props.handleSelect} renderFavorites={props.renderFavorites} favoritesView={props.favoritesView}/>
 

@@ -9,6 +9,10 @@
   margin-right: 10px;
 }
 
+.recipe-list {
+  margin-top: 20px;
+}
+
 #add-recipe-label {
   padding: 5px;
   margin-top: 5px;
@@ -38,4 +42,9 @@
 
 #fav-button {
   margin-top: 10px;
+}
+
+#recipeItems {
+  padding: 20px;
+  margin: 35px;
 }

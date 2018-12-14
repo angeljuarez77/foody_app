@@ -1,7 +1,7 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import { Button } from 'reactstrap'
-
+import { Button } from 'reactstrap';
+import './LoggedIn/LoggedIn.css';
 
 
 export default function Recipe(props) {
@@ -17,7 +17,7 @@ export default function Recipe(props) {
       <h3>{props.title}</h3>
     <div className="videoframe">
       <YouTube videoId={props.vidId} opts ={opts}/>
-      <button onClick={props.onDelete}>Delete Recipe</button>
+      <Button onClick={props.onDelete} outline color="secondary" size="sm">Delete Recipe</Button>
     </div>
   </div>
   )
