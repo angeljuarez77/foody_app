@@ -42,3 +42,6 @@ These would be the endpoints for our API
 ![Endpoints for our API](https://github.com/angeljuarez77/foody_app/blob/master/p3_proposal/pg7.jpg)
 ## Acknowlegements
 Leo, Missy, Jess, Angel
+
+## Link To Deployed project
+[Foody App](http://curious-soda.surge.sh/)
